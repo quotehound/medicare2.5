@@ -1,70 +1,64 @@
-# Getting Started with Create React App
+<p align="center">
+  <a href="" rel="noopener">
+ <img src="https://assets.website-files.com/5dfd95f78d0e1ee3b32e0f58/5dfd965f8d0e1e23372e0fad_Quotehound%2520Primary%2520Logo%2520-%2520transparent%2520rasterized%2520(1)-p-2600.png" alt="Project logo"></a>
+</p>
+<h3 align="center">Medicare Form</h3>
+---
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center"> Details About The Form & Code Base.
+    <br> 
+</p>
 
-## Available Scripts
+## 📝 Table of Contents
 
-In the project directory, you can run:
 
-### `npm start`
+- [Dependencies / Limitations](#limitations)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## ⛓️ Dependencies / Limitations <a name = "limitations"></a>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Zipcode API (on load)
+- Address Validator 
+- Router v6
+- React Script 5.0
+- Tailwind CSS 3.0 
+- axios POST
+- 
 
-### `npm test`
+## 🏁 Getting Started <a name = "getting_started"></a>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+These instructions will get you a copy of the project up and running on your local machine for development
+and testing purposes. 
 
-### `npm run build`
+git clone the repository
+```
+git clone git@gitlab.com:forms7/medicare-form.git
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+open terminal and install all neccesary libraries 
+```
+npm i 
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🎈 Usage <a name="usage"></a>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Add notes about how to use the system.
 
-### `npm run eject`
+## ⛏️ Built With <a name = "tech_stack"></a>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- [MongoDB](https://www.mongodb.com/) - Database
+- [Express](https://expressjs.com/) - Server Framework
+- [VueJs](https://vuejs.org/) - Web Framework
+- [NodeJs](https://nodejs.org/en/) - Server Environment
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## ✍️ Authors <a name = "authors"></a>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- [@kylelobo](https://github.com/kylelobo) - Idea & Initial work
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+See also the list of [contributors](https://github.com/kylelobo/The-Documentation-Compendium/contributors)
+who participated in this project.
 
-## Learn More
+## 🎉 Acknowledgments <a name = "acknowledgments"></a>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Hat tip to anyone whose code was used
+- Inspiration
+- References
