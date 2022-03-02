@@ -9,6 +9,9 @@
     <br> 
 </p>
 
+- [Click here to view known bugs](#bugs)
+- [Click here to view Roadmap](#roadmaps)
+
 ## 📝 Table of Contents
 
 
@@ -57,8 +60,6 @@ Add notes about how to use the system.
 See also the list of [contributors](https://github.com/kylelobo/The-Documentation-Compendium/contributors)
 who participated in this project.
 
-## 🎉 Acknowledgments <a name = "acknowledgments"></a>
+## Known Bugs <a name = "bugs"></a>
 
-- Hat tip to anyone whose code was used
-- Inspiration
-- References
+## Roadmap <a name = "roadmap"></a>
