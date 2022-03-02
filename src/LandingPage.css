@@ -1,0 +1,16 @@
+@import url('./font.css');
+
+.zipInput {
+  height: 75px;
+  background-color: #f5f9ff;
+  padding: 5px;
+  color: rgb(59 130 246 / var(--tw-border-opacity));
+  font-size: large;
+  font-weight: bold;
+  
+}
+
+.submitButton {
+  height: 75px;
+  font-weight: bold;
+}

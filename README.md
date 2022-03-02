@@ -9,6 +9,13 @@
     <br> 
 </p>
 
+# LATEST UPDATES: 
+  [Click here to view lateest push](#v.2.5.0.0)
+  
+- [Click Here To View All Push Updates](#updates)
+
+
+
 - [Click here to view known bugs](#bugs)
 - [Click here to view Roadmap](#roadmaps)
 
@@ -25,7 +32,7 @@
 - React Script 5.0
 - Tailwind CSS 3.0 
 - axios POST
-- 
+- Lottie Files (animations)
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
 
@@ -42,23 +49,26 @@ open terminal and install all neccesary libraries
 npm i 
 ```
 
-## 🎈 Usage <a name="usage"></a>
+## Updates <a name= "updates" > </a>
 
-Add notes about how to use the system.
-
-## ⛏️ Built With <a name = "tech_stack"></a>
-
-- [MongoDB](https://www.mongodb.com/) - Database
-- [Express](https://expressjs.com/) - Server Framework
-- [VueJs](https://vuejs.org/) - Web Framework
-- [NodeJs](https://nodejs.org/en/) - Server Environment
-
-## ✍️ Authors <a name = "authors"></a>
-
-- [@kylelobo](https://github.com/kylelobo) - Idea & Initial work
-
-See also the list of [contributors](https://github.com/kylelobo/The-Documentation-Compendium/contributors)
-who participated in this project.
+- ## v2.5.0.0 <a name='v2.5.0.0'></a>
+  - Created initial template from create-react-app
+  - fixed multifolder issue
+  - installed tailwind 
+  - installed following libraries:
+    - tailwind 
+    - axios
+    - react-number-format
+    - react-toastify 
+    - react-router
+    - react-router-dom
+    - ziptastic
+    - jquery 
+    - lottie player
+  - Added in custom font for ThiccBoi
+  - Added Headless UI 
+  - installed Hero Icons
+  - Created Landing Page jsx & css files
 
 ## Known Bugs <a name = "bugs"></a>
 
