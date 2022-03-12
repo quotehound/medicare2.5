@@ -1,5 +1,6 @@
 @import url('./font.css');
 
+
 .zipInput {
   height: 75px;
   background-color: #f5f9ff;
@@ -7,10 +8,31 @@
   color: rgb(59 130 246 / var(--tw-border-opacity));
   font-size: large;
   font-weight: bold;
+  width: 100%;
+  text-align: center;
+  
   
 }
 
-.submitButton {
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+.zipSubmit {
   height: 75px;
-  font-weight: bold;
+  font-family: 'ThiccBoiBold';
+  width: 100%;
+
 }
+
+/* .formSection {
+  max-width: 80%;
+  align-items: left;
+  margin: 0;
+}
+
+@media screen (660px){
+  .formSection 
+} */

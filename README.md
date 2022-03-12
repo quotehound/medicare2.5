@@ -10,8 +10,8 @@
 </p>
 
 # LATEST UPDATES: 
-  [Click here to view lateest push](#v.2.5.0.0)
-  
+- [Click here to view lateest push](#latest)
+
 - [Click Here To View All Push Updates](#updates)
 
 
@@ -51,7 +51,7 @@ npm i
 
 ## Updates <a name= "updates" > </a>
 
-- ## v2.5.0.0 <a name='v2.5.0.0'></a>
+- ## v2.5.0.0 <a name='latest'></a>
   - Created initial template from create-react-app
   - fixed multifolder issue
   - installed tailwind 
@@ -69,6 +69,13 @@ npm i
   - Added Headless UI 
   - installed Hero Icons
   - Created Landing Page jsx & css files
+
+- ## v2.5.0.1 <a name='latest'></a>
+  - created landing page
+  - added function for adding more elements in the landing page
+  - added banner on top 
+  - started function for zipcode validation 
+  - added function for state passs between components
 
 ## Known Bugs <a name = "bugs"></a>
 
