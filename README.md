@@ -70,12 +70,21 @@ npm i
   - installed Hero Icons
   - Created Landing Page jsx & css files
 
-- ## v2.5.0.1 <a name='latest'></a>
+- ## v2.5.0.1 
   - created landing page
   - added function for adding more elements in the landing page
   - added banner on top 
   - started function for zipcode validation 
   - added function for state passs between components
+
+
+- ## v.2.5.0.2 <a name='latest'></a>
+  - Finalized Initial design
+  - added how it works
+  - added CTA
+  - added navbar 
+  - added footer
+  
 
 ## Known Bugs <a name = "bugs"></a>
 
