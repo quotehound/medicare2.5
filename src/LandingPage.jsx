@@ -4,7 +4,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 import { SpeakerphoneIcon, XIcon, ChevronRightIcon } from '@heroicons/react/outline'
 import $ from 'jquery'
-
+import './ripple'
 
 
 //* Import Pages
@@ -33,6 +33,8 @@ class LandingPage extends Component {
 
 
 
+
+
   validateZipCode = (values) => {
 
     let value = document.getElementById('zipCode').value;
@@ -52,6 +54,7 @@ class LandingPage extends Component {
 
   render() {
 
+  
     return (
       <div>
         <ToastContainer 
@@ -73,7 +76,7 @@ class LandingPage extends Component {
                     <span className="ml-4 text-sm">Get Your Quote Over Phone</span>
                     <ChevronRightIcon className="ml-2 w-5 h-5 text-white" aria-hidden="true" />
                   </a>
-                  <h1 className="mt-4 text-4xl tracking-tight font-extrabold text-white sm:mt-5 sm:leading-none lg:mt-6 lg:text-3xl xl:text-5xl">
+                  <h1 className="mt-4 tracking-tight font-extrabold text-white sm:mt-5 sm:leading-none lg:mt-6 lg:text-4xl xl:text-6xl">
                     <span className="md:block">Get Your No Obligation</span>{' '}
                     <span className="text-blue-300 md:block">Medicare Quote</span>
                   </h1>
@@ -88,7 +91,7 @@ class LandingPage extends Component {
                 <div className="bg-white sm:max-w-md sm:w-full sm:mx-auto sm:rounded-lg sm:overflow-hidden">
                   <div className="px-4 py-8 sm:px-10">
                     <div>
-                      <h3 className="text-lg font-medium text-gray-700 text-center">Start You Quote Today</h3>
+                      <h3 className="text-2xl font-bold text-gray-700 text-center">Start Your Quote Today</h3>
 
                      
                     </div>
@@ -106,7 +109,8 @@ class LandingPage extends Component {
                             type="text"
                             name="zipCode"
                             placeholder="Zip Code"
-                            pattern="\d*"                             id="zipCode"
+                            pattern="\d*"
+                            id="zipCode"
                             minLength={5}
                             maxLength={5}
                             onChange={this.validateZipCode}
@@ -120,7 +124,7 @@ class LandingPage extends Component {
                         <div>
                           <button
                             type="submit"
-                            className="px-6 py-4  m-2 text-lg bg-blue-400 hover:bg-blue-600 hover:shadow-lg text-white rounded transition duration-200 zipSubmit"
+                            className="px-6 py-4 ripple-bg-blue-200  m-2 text-lg bg-blue-400 hover:shadow-lg text-white rounded transition duration-200 zipSubmit "
                           >
                             Start My Quote
                           </button>
@@ -135,7 +139,7 @@ class LandingPage extends Component {
           </div>
         </div>
 
-        <section className="py-20">
+        {/* <section className="py-20">
   <div className="container px-4 mx-auto">
     <div className="flex flex-wrap -mx-4">
       <div className="w-full lg:w-1/3 px-4 mb-12 lg:mb-0 text-center">
@@ -172,7 +176,51 @@ class LandingPage extends Component {
    </div>
 
   </div>
+</section> */}
+      
+      <section className="py-10 bg-gray-100">
+  <div className="container px-4 mx-auto">
+    <div className="max-w-5xl mx-auto text-center mb-16 md:mb-24">
+      <span className="inline-block py-px px-2 mb-4 text-xs leading-5 text-white bg-blue-300 font-medium uppercase rounded-lg shadow-sm" data-config-id="auto-txt-1-3">How it works</span>
+      <h2 className="mb-4 text-4xl md:text-5xl leading-tight font-bold tracking-tighter" data-config-id="auto-txt-2-3">See How You Can Get Matched</h2>
+     
+    </div>
+    <div className="flex flex-wrap -mx-4">
+      <div className="w-full md:w-1/2 lg:w-1/3 px-4 mb-16">
+        <div className="relative h-full px-8 pt-14 pb-8 bg-white rounded-2xl shadow-lg">
+          <div className="absolute top-0 left-1/2 transform -translate-y-1/2 -translate-x-1/2 inline-flex items-center justify-center h-16 w-16 bg-white rounded-full">
+            <div className="inline-flex items-center justify-center w-12 h-12 bg-blue-500 rounded-full text-xl font-semibold text-white" data-config-id="auto-txt-4-3">1</div>
+          </div>
+          <h3 className="md:w-64 mb-4 text-lg md:text-xl font-bold" data-config-id="auto-txt-5-3">Fill Out Our Form</h3>
+          <p className="text-coolGray-500 font-medium" data-config-id="auto-txt-6-3">Our Form is simple and easy! Finish it in 2 minutes.</p>
+        </div>
+      </div>
+      <div className="w-full md:w-1/2 lg:w-1/3 px-4 mb-16">
+        <div className="relative h-full px-8 pt-14 pb-8 bg-white rounded-2xl shadow-lg">
+          <div className="absolute top-0 left-1/2 transform -translate-y-1/2 -translate-x-1/2 inline-flex items-center justify-center h-16 w-16 bg-white rounded-full">
+            <div className="inline-flex items-center justify-center w-12 h-12 bg-blue-500 rounded-full text-xl font-semibold text-white" data-config-id="auto-txt-7-3">2</div>
+          </div>
+          <h3 className="md:w-64 mb-4 text-lg md:text-xl font-bold" data-config-id="auto-txt-8-3">Get Connected</h3>
+          <p className="text-coolGray-500 font-medium" data-config-id="auto-txt-9-3">Connect to get real rates across our partners matched for you.</p>
+        </div>
+      </div>
+      <div className="w-full md:w-1/2 lg:w-1/3 px-4 mb-16">
+        <div className="relative h-full px-8 pt-14 pb-8 bg-white rounded-2xl shadow-lg">
+          <div className="absolute top-0 left-1/2 transform -translate-y-1/2 -translate-x-1/2 inline-flex items-center justify-center h-16 w-16 bg-white rounded-full">
+            <div className="inline-flex items-center justify-center w-12 h-12 bg-blue-500 rounded-full text-xl font-semibold text-white" data-config-id="auto-txt-10-3">3</div>
+          </div>
+          <h3 className="md:w-64 mb-4 text-lg md:text-xl font-bold" data-config-id="auto-txt-11-3">Potential Savings</h3>
+          <p className="text-coolGray-500 font-medium" data-config-id="auto-txt-12-3">Explore current rates in your area, and see if you can save today!</p>
+        </div>
+      </div>
+     
+     
+     
+    </div>
+  </div>
 </section>
+   
+
 
 {/* CTA Section End */}
 

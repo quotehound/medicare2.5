@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 
 import Logo from '../images/usmq.png'
-import './NavBarMedicare.css'
 
 export default class NavBarMedicare extends Component {
 
@@ -11,7 +10,7 @@ export default class NavBarMedicare extends Component {
     return (
       <header className="bg-white">
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Top">
-          <div className="w-full py-6 flex items-center justify-between border-b border-blue-500 lg:border-none">
+          <div className="w-full py-2 flex items-center justify-between border-b border-blue-500 lg:border-none">
             <div className="flex items-center">
               <a href="#">
                 <img

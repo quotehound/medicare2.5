@@ -78,12 +78,19 @@ npm i
   - added function for state passs between components
 
 
-- ## v.2.5.0.2 <a name='latest'></a>
+- ## v2.5.0.2 
   - Finalized Initial design
   - added how it works
   - added CTA
   - added navbar 
   - added footer
+
+- ## v2.5.0.3 <a name='latest'></a>
+  - Changed Navbar height
+  - Optimized landing page
+  - added button interactions
+  - changed "how it works" section
+  - fixed footer
   
 
 ## Known Bugs <a name = "bugs"></a>
