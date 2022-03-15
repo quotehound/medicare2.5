@@ -6,8 +6,8 @@ module.exports = {
     extend: {
       ripple: theme => ({
         colors: theme('colors'),
-        modifierTransition: 'background 0.2s',
-        activeTransition: 'background 0.1s'
+        modifierTransition: 'background 0.5s',
+        activeTransition: 'background 0.5s'
     }),
     },
   },

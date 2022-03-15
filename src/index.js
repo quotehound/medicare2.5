@@ -15,3 +15,6 @@ reportWebVitals();
 
 
 
+(() => {
+  console.log('webpack worked')
+})()

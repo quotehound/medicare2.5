@@ -24,11 +24,11 @@ export default class NavBarMedicare extends Component {
             
             <div className="ml-10 space-x-4 align-center text-center">
               
-            <a className="block px-1 py-1 text-sm  text-blue-500 font-semibold  hover:border-blue-600 rounded transition duration-200 " href="#" data-config-id="primary-action"> <div className="flex">
+            <a className="block px-1 py-1 text-sm  text-blue-500 font-extrabold  hover:border-blue-600 rounded transition duration-200 " href="#" data-config-id="primary-action"> <div className="flex">
      
                 <div className=''>
                
-                  <h4 className="text-lg font-bold">
+                  <h4 className="text-lg font-extrabold">
                   
                     (123) 456-7890</h4>
         <p className="hidden  md:block">

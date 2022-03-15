@@ -10,7 +10,7 @@
 </p>
 
 # LATEST UPDATES: 
-- [Click here to view lateest push](#latest)
+- [Click here to view latest push](#latest)
 
 - [Click Here To View All Push Updates](#updates)
 
@@ -85,14 +85,22 @@ npm i
   - added navbar 
   - added footer
 
-- ## v2.5.0.3 <a name='latest'></a>
+- ## v2.5.0.3 
   - Changed Navbar height
   - Optimized landing page
   - added button interactions
   - changed "how it works" section
   - fixed footer
   
-
+- ## v2.5.0.4 <a name='latest'></a>
+  - Finalized landing page
+  - updated navbar 
+  - started api call for zipcode verification which produced a bug <a name='api-bug'> Here </a>
+  - created a webpack config file
+  - started a congif ovverrides file 
 ## Known Bugs <a name = "bugs"></a>
+
+  - API post bug: 
+    - when making an api GET call or i think any just AXIOS call, react scripts no longer has modules to cover for polyphil which in turn makes missing modules or does not have any polyphils that are needed. I have tried installing libraries, dependencies, and even creating a webpack config file with no solution yet. 
 
 ## Roadmap <a name = "roadmap"></a>

@@ -4,8 +4,10 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 import { SpeakerphoneIcon, XIcon, ChevronRightIcon } from '@heroicons/react/outline'
 import $ from 'jquery'
-import './ripple'
-
+import './ripple';
+import loadZipCode from './api/preLoadZip';
+import axios from 'axios';
+import validateZip from './api/validateZip';
 
 //* Import Pages
 import './LandingPage.css';
@@ -32,12 +34,16 @@ class LandingPage extends Component {
   }
 
 
-
-
-
   validateZipCode = (values) => {
 
+    values.preventDefault();
+    
+
     let value = document.getElementById('zipCode').value;
+    let formType = document.activeElement.tabIndex;
+
+    console.log(formType);
+    console.log(value)
     let type;
 
     if (isNaN(value)) {
@@ -49,16 +55,24 @@ class LandingPage extends Component {
       return
     }
 
+    this.revalidateZipCode(values)
+
   }
+
+
+
 
 
   render() {
 
+    loadZipCode();
+    validateZip(values);
   
     return (
       <div>
         <ToastContainer 
           limit={1}
+          
         />
         <NavBarMedicare />
          <div className=" header min-h-50">
@@ -105,7 +119,7 @@ class LandingPage extends Component {
                             Zip Code
                           </label>
                           <input
-                            className="appearance-none w-1/2 p-3 text-lg font-semibold leading-none bg-white rounded zipInput "
+                            className=" w-1/2 p-3 text-lg font-semibold leading-none bg-white rounded text-blue-500 zipInput "
                             type="text"
                             name="zipCode"
                             placeholder="Zip Code"
@@ -113,7 +127,7 @@ class LandingPage extends Component {
                             id="zipCode"
                             minLength={5}
                             maxLength={5}
-                            onChange={this.validateZipCode}
+                            onChange={this.revalidateZipCode}
                           />
                         </div>
 
@@ -125,6 +139,8 @@ class LandingPage extends Component {
                           <button
                             type="submit"
                             className="px-6 py-4 ripple-bg-blue-200  m-2 text-lg bg-blue-400 hover:shadow-lg text-white rounded transition duration-200 zipSubmit "
+                            onClick={this.validateZipCode}
+                            id='submit'
                           >
                             Start My Quote
                           </button>
