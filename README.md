@@ -18,6 +18,7 @@
 
 - [Click here to view known bugs](#bugs)
 - [Click here to view Roadmap](#roadmaps)
+- [Click here to view fixed bugs](#fixed)
 
 ## 📝 Table of Contents
 
@@ -92,15 +93,36 @@ npm i
   - changed "how it works" section
   - fixed footer
   
-- ## v2.5.0.4 <a name='latest'></a>
+- ## v2.5.0.4 
   - Finalized landing page
   - updated navbar 
-  - started api call for zipcode verification which produced a bug <a name='api-bug'> Here </a>
+  - started api call for zipcode verification which produced a bug 
   - created a webpack config file
   - started a congif ovverrides file 
+
+- ## v2.5.0.5 <a name='latest'></a>
+  - Added support for routes
+    - still not done, currently figuring out how to render and switch/navigate
+    - fixed API bug <a href="api-bug"> Click here to view fix </a>
+    - Got initital first step post done
+    - fixed issues with polyfill bug <a href='polyfill'> Click here to view fix </a>
+    - New bug with React Router 6 <a href='react-router'> View Here for details </a>
 ## Known Bugs <a name = "bugs"></a>
 
-  - API post bug: 
-    - when making an api GET call or i think any just AXIOS call, react scripts no longer has modules to cover for polyphil which in turn makes missing modules or does not have any polyphils that are needed. I have tried installing libraries, dependencies, and even creating a webpack config file with no solution yet. 
-
+### React Router Bug <a href='react-router'></a>
+ - Need to figure out
+        - How to properly render multiple routes
+        - how to navigate to new route
+        - How to set up index.js file
+        - can we use microsoft tracking
+        - <b> Do we need to use another routing library? </b>
 ## Roadmap <a name = "roadmap"></a>
+
+
+## Fixed Bugs <a name='fixed'></a>
+ ### API get bug: Present on v2.5.0.4 <a name='api-bug'></a>
+  #### Status: FIXED
+  - How we fixed: This Component did catch is the only way we were able to bypass polyfills and allow the api to run correctly. 
+   The way we have it is on initial load, we load the api from the loadZipCode api. Then we let it stay as an intial value which goes into the component did catch button click on submit. Then we update local storage, and value inputs to the api based call 
+  ### Polyfill Bug: Present on v2.5.0.4 <a name='polyfill'></a>
+  - Is tied with API bug but when we make api calls or use a library that uses react 5 or polyfills we need to make sure the library is updated, or need to figure out a work aroud. 

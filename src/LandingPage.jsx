@@ -2,12 +2,10 @@
 import React, { Component } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
-import { SpeakerphoneIcon, XIcon, ChevronRightIcon } from '@heroicons/react/outline'
-import $ from 'jquery'
-import './ripple';
+import { ChevronRightIcon } from '@heroicons/react/outline'
 import loadZipCode from './api/preLoadZip';
-import axios from 'axios';
-import validateZip from './api/validateZip';
+
+
 
 //* Import Pages
 import './LandingPage.css';
@@ -15,12 +13,8 @@ import NavBarMedicare from './medicare/NavBarMedicare';
 import LandingPageCheckBox from './LandingPageCheckbox';
 import FooterMedicare from './medicare/FooterMedicare';
 
-//* Import Images
-import HeaderImage from './images/header.png'
-import Logo from './images/usmq.png';
-import Money from './images/Money.svg';
-import Connect from './images/Connect.svg';
-import Form from './images/Form.svg';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 
 class LandingPage extends Component {
@@ -33,18 +27,47 @@ class LandingPage extends Component {
     };
   }
 
+  //* This Component did catch is the only way we were able to bypass polyfills and allow the api to run correctly. 
+  //* The way we have it is on initial load, we load the api from the loadZipCode api
+  //* Then we let it stay as an intial value which goes into the component did catch button click on submit
+  //* then we update local storage, and value inputs to the api based call 
+
+  componentDidCatch(values) {
+
+    const zipVal = document.getElementById('zipCode').value;
+
+    axios.get('https://ziptasticapi.com/' + zipVal)
+      .then(res => {
+        const z = res
+        if (res.data.error) {
+          toast.error('😬 Please enter a zip code!')
+        }
+        else {
+          let zipcode = zipVal;
+          let city = res.data.city;
+          let state = res.data.state;
+          localStorage.setItem('zipCode', zipcode);
+          localStorage.setItem('state', state);
+          localStorage.setItem('city', city);
+          this.nextStep()
+        }
+      })
+  }
 
   validateZipCode = (values) => {
 
     values.preventDefault();
-    
-
     let value = document.getElementById('zipCode').value;
     let formType = document.activeElement.tabIndex;
 
-    console.log(formType);
-    console.log(value)
-    let type;
+    if (formType === 0) {
+      var fType = 'health';
+      localStorage.setItem('formType', fType)
+    }
+    else {
+      var fType = 'medicare';
+      localStorage.setItem('formType', fType)
+    }
 
     if (isNaN(value)) {
       toast.error('😬 Please enter only numbers!')
@@ -55,27 +78,43 @@ class LandingPage extends Component {
       return
     }
 
-    this.revalidateZipCode(values)
-
+    this.componentDidCatch(value)
   }
 
+  nextStep() {
 
 
+    const urlSearch = window.location.search;
+    const urlParams = new URLSearchParams(urlSearch);
 
+    const gclid = urlParams.get('gclid');
+    const lp = urlParams.get('lp_request_id');
+    const zipCode = localStorage.getItem('zipCode');
+    const city = localStorage.getItem('city');
+    const state = localStorage.getItem('state');
+    const formType = localStorage.getItem('formType');
+
+    this.props.setZipCode(zipCode);
+    this.props.setCity(city);
+    this.props.setUState(state);
+    this.props.setFormType(formType);
+
+    Link('/age' + '?gclid=' + gclid + '&lp=' + lp + '&zipcode=' + zipCode + '&city=' + city + '&state=' + state + '&formType=' + formType)
+
+  }
 
   render() {
 
     loadZipCode();
-    validateZip(values);
-  
+
     return (
       <div>
-        <ToastContainer 
+        <ToastContainer
           limit={1}
-          
+
         />
         <NavBarMedicare />
-         <div className=" header min-h-50">
+        <div className=" header min-h-50">
           <div className="mx-auto max-w-7xl content-center" >
             <div className="lg:grid lg:grid-cols-12 lg:gap-8 content-center">
               <div className="px-4 sm:px-6 sm:text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left lg:flex lg:items-center">
@@ -95,10 +134,8 @@ class LandingPage extends Component {
                     <span className="text-blue-300 md:block">Medicare Quote</span>
                   </h1>
                   <p className="mt-3 text-base text-gray-300 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
-                    Fill out our form or give us a call and start your no obligation medicare quote today! 
+                    Fill out our form or give us a call and start your no obligation medicare quote today!
                   </p>
-                 
-                 
                 </div>
               </div>
               <div className="mt-16 sm:mt-24 sm:px-10 lg:mt-0 lg:col-span-6">
@@ -106,14 +143,9 @@ class LandingPage extends Component {
                   <div className="px-4 py-8 sm:px-10">
                     <div>
                       <h3 className="text-2xl font-bold text-gray-700 text-center">Start Your Quote Today</h3>
-
-                     
                     </div>
-
-                    
-
                     <div className="mt-6">
-                      <form  className="space-y-6">
+                      <form className="space-y-6">
                         <div>
                           <label htmlFor="name" className="sr-only">
                             Zip Code
@@ -127,14 +159,9 @@ class LandingPage extends Component {
                             id="zipCode"
                             minLength={5}
                             maxLength={5}
-                            onChange={this.revalidateZipCode}
                           />
                         </div>
-
-                        
-                          <LandingPageCheckBox />
-                        
-
+                        <LandingPageCheckBox />
                         <div>
                           <button
                             type="submit"
@@ -148,141 +175,102 @@ class LandingPage extends Component {
                       </form>
                     </div>
                   </div>
-              
+
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* <section className="py-20">
-  <div className="container px-4 mx-auto">
-    <div className="flex flex-wrap -mx-4">
-      <div className="w-full lg:w-1/3 px-4 mb-12 lg:mb-0 text-center">
-        <span className="inline-block mx-auto mb-6 flex items-center justify-center rounded-full">
-                  <img src={Form} className="startIcon" />
+        <section className="py-10 bg-gray-100">
+          <div className="container px-4 mx-auto">
+            <div className="max-w-5xl mx-auto text-center mb-16 md:mb-24">
+              <span className="inline-block py-px px-2 mb-4 text-xs leading-5 text-white bg-blue-300 font-medium uppercase rounded-lg shadow-sm" data-config-id="auto-txt-1-3">How it works</span>
+              <h2 className="mb-4 text-4xl md:text-5xl leading-tight font-bold tracking-tighter" data-config-id="auto-txt-2-3">See How You Can Get Matched</h2>
 
-        </span>
-        <h3 className="mb-4 text-2xl font-bold font-heading" data-config-id="header3">Fill Out Our Inquiry Form</h3>
-        <p className="text-lg text-black leading-loose max-w-lg mx-auto lg:px-12" data-config-id="desc3">Our Form is simple and easy! Finish it in 2 minutes</p>
-      </div>
-      <div className="w-full lg:w-1/3 px-4 mb-12 lg:mb-0 text-center">
-      <span className="inline-block mx-auto mb-6 flex items-center justify-center rounded-full">
-                  <img src={Connect} className="startIcon"  />
+            </div>
+            <div className="flex flex-wrap -mx-4">
+              <div className="w-full md:w-1/2 lg:w-1/3 px-4 mb-16">
+                <div className="relative h-full px-8 pt-14 pb-8 bg-white rounded-2xl shadow-lg">
+                  <div className="absolute top-0 left-1/2 transform -translate-y-1/2 -translate-x-1/2 inline-flex items-center justify-center h-16 w-16 bg-white rounded-full">
+                    <div className="inline-flex items-center justify-center w-12 h-12 bg-blue-500 rounded-full text-xl font-semibold text-white" data-config-id="auto-txt-4-3">1</div>
+                  </div>
+                  <h3 className="md:w-64 mb-4 text-lg md:text-xl font-bold" data-config-id="auto-txt-5-3">Fill Out Our Form</h3>
+                  <p className="text-coolGray-500 font-medium" data-config-id="auto-txt-6-3">Our Form is simple and easy! Finish it in 2 minutes.</p>
+                </div>
+              </div>
+              <div className="w-full md:w-1/2 lg:w-1/3 px-4 mb-16">
+                <div className="relative h-full px-8 pt-14 pb-8 bg-white rounded-2xl shadow-lg">
+                  <div className="absolute top-0 left-1/2 transform -translate-y-1/2 -translate-x-1/2 inline-flex items-center justify-center h-16 w-16 bg-white rounded-full">
+                    <div className="inline-flex items-center justify-center w-12 h-12 bg-blue-500 rounded-full text-xl font-semibold text-white" data-config-id="auto-txt-7-3">2</div>
+                  </div>
+                  <h3 className="md:w-64 mb-4 text-lg md:text-xl font-bold" data-config-id="auto-txt-8-3">Get Connected</h3>
+                  <p className="text-coolGray-500 font-medium" data-config-id="auto-txt-9-3">Connect to get real rates across our partners matched for you.</p>
+                </div>
+              </div>
+              <div className="w-full md:w-1/2 lg:w-1/3 px-4 mb-16">
+                <div className="relative h-full px-8 pt-14 pb-8 bg-white rounded-2xl shadow-lg">
+                  <div className="absolute top-0 left-1/2 transform -translate-y-1/2 -translate-x-1/2 inline-flex items-center justify-center h-16 w-16 bg-white rounded-full">
+                    <div className="inline-flex items-center justify-center w-12 h-12 bg-blue-500 rounded-full text-xl font-semibold text-white" data-config-id="auto-txt-10-3">3</div>
+                  </div>
+                  <h3 className="md:w-64 mb-4 text-lg md:text-xl font-bold" data-config-id="auto-txt-11-3">Potential Savings</h3>
+                  <p className="text-coolGray-500 font-medium" data-config-id="auto-txt-12-3">Explore current rates in your area, and see if you can save today!</p>
+                </div>
+              </div>
 
-        </span>
-        <h3 className="mb-4 text-2xl font-bold font-heading" data-config-id="header3">Get Connected </h3>
-        <p className="text-lg text-black leading-loose max-w-lg mx-auto lg:px-12" data-config-id="desc3">Connect to get real rates across our partners.</p>
 
 
-      </div>
-      <div className="w-full lg:w-1/3 px-4 mb-12 lg:mb-0 text-center">
-      <span className="inline-block mx-auto mb-6 flex items-center justify-center rounded-full">
-                  <img src={Money} className="startIcon"/>
-
-        </span>
-        <h3 className="mb-4 text-2xl font-bold font-heading" data-config-id="header3">May Save Money</h3>
-        <p className="text-lg text-black leading-loose max-w-lg mx-auto lg:px-12" data-config-id="desc3">Explore current rates in your area</p>
-      </div>
-    </div>
-
-   <div className="inline-block mx-auto mb-6 flex items-center justify-center rounded-full p-10 "> 
-   <a className="inline-block mr-auto lg:mr-0 py-4 px-8 text-md text-white font-medium leafing-normal bg-blue-400 hover:bg-blue-600 hover:shadow-lg rounded" onClick={this.autoFocusClick} data-config-id="primary-action">Get Your No Obligation Free Quote</a>
-
-   </div>
-
-  </div>
-</section> */}
-      
-      <section className="py-10 bg-gray-100">
-  <div className="container px-4 mx-auto">
-    <div className="max-w-5xl mx-auto text-center mb-16 md:mb-24">
-      <span className="inline-block py-px px-2 mb-4 text-xs leading-5 text-white bg-blue-300 font-medium uppercase rounded-lg shadow-sm" data-config-id="auto-txt-1-3">How it works</span>
-      <h2 className="mb-4 text-4xl md:text-5xl leading-tight font-bold tracking-tighter" data-config-id="auto-txt-2-3">See How You Can Get Matched</h2>
-     
-    </div>
-    <div className="flex flex-wrap -mx-4">
-      <div className="w-full md:w-1/2 lg:w-1/3 px-4 mb-16">
-        <div className="relative h-full px-8 pt-14 pb-8 bg-white rounded-2xl shadow-lg">
-          <div className="absolute top-0 left-1/2 transform -translate-y-1/2 -translate-x-1/2 inline-flex items-center justify-center h-16 w-16 bg-white rounded-full">
-            <div className="inline-flex items-center justify-center w-12 h-12 bg-blue-500 rounded-full text-xl font-semibold text-white" data-config-id="auto-txt-4-3">1</div>
+            </div>
           </div>
-          <h3 className="md:w-64 mb-4 text-lg md:text-xl font-bold" data-config-id="auto-txt-5-3">Fill Out Our Form</h3>
-          <p className="text-coolGray-500 font-medium" data-config-id="auto-txt-6-3">Our Form is simple and easy! Finish it in 2 minutes.</p>
-        </div>
-      </div>
-      <div className="w-full md:w-1/2 lg:w-1/3 px-4 mb-16">
-        <div className="relative h-full px-8 pt-14 pb-8 bg-white rounded-2xl shadow-lg">
-          <div className="absolute top-0 left-1/2 transform -translate-y-1/2 -translate-x-1/2 inline-flex items-center justify-center h-16 w-16 bg-white rounded-full">
-            <div className="inline-flex items-center justify-center w-12 h-12 bg-blue-500 rounded-full text-xl font-semibold text-white" data-config-id="auto-txt-7-3">2</div>
-          </div>
-          <h3 className="md:w-64 mb-4 text-lg md:text-xl font-bold" data-config-id="auto-txt-8-3">Get Connected</h3>
-          <p className="text-coolGray-500 font-medium" data-config-id="auto-txt-9-3">Connect to get real rates across our partners matched for you.</p>
-        </div>
-      </div>
-      <div className="w-full md:w-1/2 lg:w-1/3 px-4 mb-16">
-        <div className="relative h-full px-8 pt-14 pb-8 bg-white rounded-2xl shadow-lg">
-          <div className="absolute top-0 left-1/2 transform -translate-y-1/2 -translate-x-1/2 inline-flex items-center justify-center h-16 w-16 bg-white rounded-full">
-            <div className="inline-flex items-center justify-center w-12 h-12 bg-blue-500 rounded-full text-xl font-semibold text-white" data-config-id="auto-txt-10-3">3</div>
-          </div>
-          <h3 className="md:w-64 mb-4 text-lg md:text-xl font-bold" data-config-id="auto-txt-11-3">Potential Savings</h3>
-          <p className="text-coolGray-500 font-medium" data-config-id="auto-txt-12-3">Explore current rates in your area, and see if you can save today!</p>
-        </div>
-      </div>
-     
-     
-     
-    </div>
-  </div>
-</section>
-   
+        </section>
 
 
-{/* CTA Section End */}
 
-<section className="relative py-20 bg-gray-50">
-  <div className="container px-4 mx-auto">
-    <div className="w-full lg:w-1/2 mb-12">
-      <div className="lg:max-w-md">
-        <h2 className="mb-4 lg:mb-6 text-4xl md:text-5xl mt-3 font-bold font-heading" data-config-id="header">Compare the best plan for you</h2>
-        <p className="mb-8 text-2xl text-black leading-loose" data-config-id="desc">So you can enjoy the simple things in life.</p>
-        <div className="flex items-start py-4">
-          <div className="mr-5 text-gray-500">
-            <svg className="w-10 h-10 check" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle  cx={24} cy={24} r="23.5" stroke="#C2C9D2" />
-            </svg>
+        {/* CTA Section End */}
+
+        <section className="relative py-20 bg-gray-50">
+          <div className="container px-4 mx-auto">
+            <div className="w-full lg:w-1/2 mb-12">
+              <div className="lg:max-w-md">
+                <h2 className="mb-4 lg:mb-6 text-4xl md:text-5xl mt-3 font-bold font-heading" data-config-id="header">Compare the best plan for you</h2>
+                <p className="mb-8 text-2xl text-black leading-loose" data-config-id="desc">So you can enjoy the simple things in life.</p>
+                <div className="flex items-start py-4">
+                  <div className="mr-5 text-gray-500">
+                    <svg className="w-10 h-10 check" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx={24} cy={24} r="23.5" stroke="#C2C9D2" />
+                    </svg>
+                  </div>
+                  <div className="max-w-sm">
+                    <h3 className="mb-2 text-xl leading-loose text-gray-600" data-config-id="header1"><b>Online form </b></h3>
+                  </div>
+                </div>
+                <div className="flex items-start py-4">
+                  <div className="mr-5 text-gray-500">
+                    <svg className="w-10 h-10 check" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx={24} cy={24} r="23.5" stroke="#C2C9D2" />
+                    </svg>
+                  </div>
+                  <div className="max-w-sm">
+                    <h3 className="mb-2 text-xl leading-loose text-gray-600" data-config-id="header2"><b>Friendly</b> agents</h3>
+                  </div>
+                </div>
+                <div className="flex items-start py-4">
+                  <div className="mr-5 text-gray-500">
+                    <svg className="w-10 h-10 check" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx={24} cy={24} r="23.5" stroke="#C2C9D2" />
+                    </svg>
+                  </div>
+                  <div className="max-w-sm">
+                    <h3 className="mb-2 text-xl leading-loose text-gray-600" data-config-id="header3"><b>No</b> Pushy Agents Or Hidden Fees</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="max-w-sm">
-            <h3 className="mb-2 text-xl leading-loose text-gray-600" data-config-id="header1"><b>Online form </b></h3>
-          </div>
-        </div>
-        <div className="flex items-start py-4">
-          <div className="mr-5 text-gray-500">
-          <svg className="w-10 h-10 check" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle  cx={24} cy={24} r="23.5" stroke="#C2C9D2" />
-            </svg>
-          </div>
-          <div className="max-w-sm">
-            <h3 className="mb-2 text-xl leading-loose text-gray-600" data-config-id="header2"><b>Friendly</b> agents</h3>
-          </div>
-        </div>
-        <div className="flex items-start py-4">
-          <div className="mr-5 text-gray-500">
-          <svg className="w-10 h-10 check" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle  cx={24} cy={24} r="23.5" stroke="#C2C9D2" />
-            </svg>
-          </div>
-          <div className="max-w-sm">
-            <h3 className="mb-2 text-xl leading-loose text-gray-600" data-config-id="header3"><b>No</b> Pushy Agents Or Hidden Fees</h3>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div className="h-96 lg:h-auto lg:absolute top-0 right-0 bottom-0 lg:w-1/2 bg-no-repeat bg-cover lastSec" data-config-id="image" />
+          <div className="h-96 lg:h-auto lg:absolute top-0 right-0 bottom-0 lg:w-1/2 bg-no-repeat bg-cover lastSec" data-config-id="image" />
         </section>
         <FooterMedicare />
-     </div>
+      </div>
     )
   }
 }

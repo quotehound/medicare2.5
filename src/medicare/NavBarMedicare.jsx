@@ -26,7 +26,7 @@ export default class NavBarMedicare extends Component {
               
             <a className="block px-1 py-1 text-sm  text-blue-500 font-extrabold  hover:border-blue-600 rounded transition duration-200 " href="#" data-config-id="primary-action"> <div className="flex">
      
-                <div className=''>
+                <div className=' font-extrabold'>
                
                   <h4 className="text-lg font-extrabold">
                   
