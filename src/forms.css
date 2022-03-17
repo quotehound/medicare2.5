@@ -1,0 +1,19 @@
+.buttonBlock {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+}
+.chooseButton {
+  min-width: 200px;
+  max-width: 200px;
+  padding: 10px;
+  margin: 15px;
+  font-size: 22px;
+  min-height: 75px;
+  cursor: pointer;
+  text-align: center;
+  line-height: 30px;
+
+  
+}

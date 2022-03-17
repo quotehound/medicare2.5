@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Routes, Route } from "react-router-dom"
-
+import { Route, Switch } from 'react-router';
+import { BrowserRouter } from 'react-router-dom';
 
 
 //* Import Pages
@@ -30,9 +30,11 @@ class App extends Component {
   }
   render() {
     return (
+    <BrowserRouter>
       <div>
-        <Routes>
-          <Route path='path'>
+
+          <Switch>
+            <Route path='/' exact>
             <LandingPage
               
               setZipCode={(zipCode) => {
@@ -70,16 +72,13 @@ class App extends Component {
               }}
             
             />
-          </Route>
-          
-          <Route path='/age'>
-            <Age 
-               
-            />
-          </Route>
-          </Routes>
+            </Route>
+
+            <Route path='/age' component={Age} />
+          </Switch>
+    
         </div>
-        
+        </BrowserRouter>
         
     )
   }

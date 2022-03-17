@@ -100,29 +100,38 @@ npm i
   - created a webpack config file
   - started a congif ovverrides file 
 
-- ## v2.5.0.5 <a name='latest'></a>
+- ## v2.5.0.5
   - Added support for routes
     - still not done, currently figuring out how to render and switch/navigate
     - fixed API bug <a href="api-bug"> Click here to view fix </a>
     - Got initital first step post done
     - fixed issues with polyfill bug <a href='polyfill'> Click here to view fix </a>
     - New bug with React Router 6 <a href='react-router'> View Here for details </a>
+
+  - ## v2.5.0.6  <a name='latest' id='latest'></a>
+    - Fixed React Router Bug
+    - Changed package.json file to remove redundent and neglected libraries
+    - Created first step for Age
+      - Added functionality for mapping for buttons
+    - Fixed styling issues
+    - Added dynamic footer/header
+    - fixed preload and verifcation zipcode issues
+    - Added functionality for verification
 ## Known Bugs <a name = "bugs"></a>
 
-### React Router Bug <a href='react-router'></a>
- - Need to figure out
-        - How to properly render multiple routes
-        - how to navigate to new route
-        - How to set up index.js file
-        - can we use microsoft tracking
-        - <b> Do we need to use another routing library? </b>
+
 ## Roadmap <a name = "roadmap"></a>
 
 
-## Fixed Bugs <a name='fixed'></a>
+## Fixed Bugs <a name='fixed' id='fixed'></a>
  ### API get bug: Present on v2.5.0.4 <a name='api-bug'></a>
-  #### Status: FIXED
+  ## Status: FIXED on v2.5.0.5
   - How we fixed: This Component did catch is the only way we were able to bypass polyfills and allow the api to run correctly. 
    The way we have it is on initial load, we load the api from the loadZipCode api. Then we let it stay as an intial value which goes into the component did catch button click on submit. Then we update local storage, and value inputs to the api based call 
   ### Polyfill Bug: Present on v2.5.0.4 <a name='polyfill'></a>
+    ## Status: FIXED on v2.5.0.5
   - Is tied with API bug but when we make api calls or use a library that uses react 5 or polyfills we need to make sure the library is updated, or need to figure out a work aroud. 
+
+  ### React Router Bug present on v.2.5.0.5 <a name='router-bug'></a>
+    ## Status: FIXED on v2.5.0.6
+  - How we fixed: React Router v6 is really functional based, 2.5 is writen component based. We reverted back to 5.3.1 version to utilize component based rendering and routes. Perhaps we may update once we come with a fix or a workaround to use v6.

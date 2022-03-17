@@ -4,6 +4,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 import { ChevronRightIcon } from '@heroicons/react/outline'
 import loadZipCode from './api/preLoadZip';
+import { withRouter } from 'react-router';
+
 
 
 
@@ -40,9 +42,10 @@ class LandingPage extends Component {
       .then(res => {
         const z = res
         if (res.data.error) {
-          toast.error('😬 Please enter a zip code!')
+          toast.error('😬 Please enter a valid zip code!');
         }
         else {
+          toast.dismiss();
           let zipcode = zipVal;
           let city = res.data.city;
           let state = res.data.state;
@@ -52,9 +55,11 @@ class LandingPage extends Component {
           this.nextStep()
         }
       })
+      toast.clearWaitingQueue();
+
   }
 
-  validateZipCode = (values) => {
+    validateZipCode = (values) => {
 
     values.preventDefault();
     let value = document.getElementById('zipCode').value;
@@ -78,6 +83,7 @@ class LandingPage extends Component {
       return
     }
 
+      toast.clearWaitingQueue();
     this.componentDidCatch(value)
   }
 
@@ -99,22 +105,28 @@ class LandingPage extends Component {
     this.props.setUState(state);
     this.props.setFormType(formType);
 
-    Link('/age' + '?gclid=' + gclid + '&lp=' + lp + '&zipcode=' + zipCode + '&city=' + city + '&state=' + state + '&formType=' + formType)
+    this.props.history.push('/age' + '?gclid=' + gclid + '&lp=' + lp + '&zipcode=' + zipCode + '&city=' + city + '&state=' + state + '&formType=' + formType)
 
   }
 
   render() {
 
     loadZipCode();
+    let zipCode = localStorage.getItem('zipCode')
+    let city = localStorage.getItem('city');
+    let state = localStorage.getItem('state')
 
+  
     return (
       <div>
         <ToastContainer
           limit={1}
+          position="top-center"
+          theme='colored'
 
         />
         <NavBarMedicare />
-        <div className=" header min-h-50">
+        <div className=" header">
           <div className="mx-auto max-w-7xl content-center" >
             <div className="lg:grid lg:grid-cols-12 lg:gap-8 content-center">
               <div className="px-4 sm:px-6 sm:text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left lg:flex lg:items-center">
@@ -157,9 +169,11 @@ class LandingPage extends Component {
                             placeholder="Zip Code"
                             pattern="\d*"
                             id="zipCode"
+                            defaultValue={zipCode}
                             minLength={5}
                             maxLength={5}
                           />
+                          <p className='text-sm text-gray-400' id='city'>Savings available in {city}, {state}</p>
                         </div>
                         <LandingPageCheckBox />
                         <div>
@@ -275,4 +289,4 @@ class LandingPage extends Component {
   }
 }
 
-export default LandingPage;
+export default withRouter(LandingPage);

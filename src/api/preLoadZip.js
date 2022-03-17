@@ -26,7 +26,7 @@ export default function loadZipCode() {
     localStorage.setItem('state', state);
     localStorage.setItem('ip', ip)
 
-    document.getElementById('zipCode').value = zip;
+    //document.getElementById('zipCode').value = zip;
     
   })
 
