@@ -6,8 +6,10 @@ import { BrowserRouter } from 'react-router-dom';
 //* Import Pages
 import LandingPage from './LandingPage'
 import Age from './Age'
+import Enrolled from './medicare/Enrolled';
+import Gender from './Main Form/Gender';
 class App extends Component {
-   
+
   //* set states for post data 
 
   state = {
@@ -26,60 +28,95 @@ class App extends Component {
       city: '',
       state: '',
       form_type: '',
+      over_sixty_five: '',
+      coverage_time: 'Yes',
+      are_you_currently_enrolled_in_both_medicare_part_a_part_b: '',
+      gender: '',
     }
   }
   render() {
     return (
-    <BrowserRouter>
-      <div>
+      <BrowserRouter>
+        <div>
 
           <Switch>
             <Route path='/' exact>
-            <LandingPage
-              
-              setZipCode={(zipCode) => {
-                this.setState({
-                  postData: {
-                    zip_code: zipCode,
-                  },
-                });
-              }}
+              <LandingPage
 
-              setCity={(city) => {
-                this.setState({
-                  postData: {
-                    city: city,
-                  },
-                });
-              }}
+                setZipCode={(zipCode) => {
+                  this.setState({
+                    postData: {
+                      zip_code: zipCode,
+                    },
+                  });
+                }}
 
-              setUState={(state) => {
-                this.setState({
-                  postData: {
-                    state: state,
-                  },
-                });
-              }}
+                setCity={(city) => {
+                  this.setState({
+                    postData: {
+                      city: city,
+                    },
+                  });
+                }}
 
-              setFormType={(formType) => {
-                this.setState({
-                  postData: {
-                    form_type: formType,
-                  }
-                })
+                setUState={(state) => {
+                  this.setState({
+                    postData: {
+                      state: state,
+                    },
+                  });
+                }}
 
-                console.log(this.state.postData)
-              }}
-            
-            />
+                setFormType={(formType) => {
+                  this.setState({
+                    postData: {
+                      form_type: formType,
+                    },
+                  });
+                }}
+              />
             </Route>
 
-            <Route path='/age' component={Age} />
+            <Route path='/age'>
+              <Age
+                setAge={(age) => {
+                  this.setState({
+                    postData: {
+                      over_sixty_five: age,
+                    },
+                  });
+                }}
+              />
+            </Route>
+
+            <Route path='/enrolled'>
+              <Enrolled
+                setEnrolled={(enrolled) => {
+                  this.setState({
+                    postData: {
+                      are_you_currently_enrolled_in_both_medicare_part_a_part_b: enrolled
+                    }
+                  })
+                }}
+              />
+            </Route>
+
+            <Route path='/gender'>
+              <Gender
+                setGender={(gender) => {
+                  this.setState({
+                    postData: {
+                      gender: gender,
+                    },
+                  });
+                }}
+              />
+            </Route>
           </Switch>
-    
+
         </div>
-        </BrowserRouter>
-        
+      </BrowserRouter>
+
     )
   }
 }

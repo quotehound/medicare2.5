@@ -4,8 +4,8 @@ import { CheckCircleIcon } from '@heroicons/react/solid'
 
 const Formtype = [
   { id: 1, title: 'Medicare', key: 'medicare', description: 'I am Over 65' },
-  { id: 2, title: 'HealthCare', key: 'healthcare', description: 'I am Under 65'},
- 
+  { id: 2, title: 'HealthCare', key: 'healthcare', description: 'I am Under 65' },
+
 ]
 
 function classNames(...classes) {
@@ -23,6 +23,7 @@ export default function LandingPageCheckBox() {
         {Formtype.map((Formtype) => (
           <RadioGroup.Option
             key={Formtype.id}
+            id='radio'
             value={Formtype}
             className={({ checked, active }) =>
               classNames(
@@ -34,6 +35,7 @@ export default function LandingPageCheckBox() {
           >
             {({ checked, active }) => (
               <>
+
                 <div className="flex-1 flex">
                   <div className="flex flex-col">
                     <RadioGroup.Label as="span" className="block text-sm font-medium text-gray-900" key={Formtype.key}>
@@ -42,7 +44,7 @@ export default function LandingPageCheckBox() {
                     <RadioGroup.Description as="span" className="mt-1 flex items-center text-sm text-gray-500">
                       {Formtype.description}
                     </RadioGroup.Description>
-                   
+
                   </div>
                 </div>
                 <CheckCircleIcon

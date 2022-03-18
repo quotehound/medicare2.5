@@ -9,12 +9,11 @@
     <br> 
 </p>
 
-# LATEST UPDATES: 
+# LATEST UPDATES:
+
 - [Click here to view latest push](#latest)
 
 - [Click Here To View All Push Updates](#updates)
-
-
 
 - [Click here to view known bugs](#bugs)
 - [Click here to view Roadmap](#roadmaps)
@@ -22,93 +21,99 @@
 
 ## 📝 Table of Contents
 
-
 - [Dependencies / Limitations](#limitations)
 
 ## ⛓️ Dependencies / Limitations <a name = "limitations"></a>
 
 - Zipcode API (on load)
-- Address Validator 
+- Address Validator
 - Router v6
 - React Script 5.0
-- Tailwind CSS 3.0 
+- Tailwind CSS 3.0
 - axios POST
 - Lottie Files (animations)
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
 
 These instructions will get you a copy of the project up and running on your local machine for development
-and testing purposes. 
+and testing purposes.
 
 git clone the repository
+
 ```
 git clone git@gitlab.com:forms7/medicare-form.git
 ```
 
-open terminal and install all neccesary libraries 
+open terminal and install all neccesary libraries
+
 ```
-npm i 
+npm i
 ```
 
 ## Updates <a name= "updates" > </a>
 
 - ## v2.5.0.0 <a name='latest'></a>
+
   - Created initial template from create-react-app
   - fixed multifolder issue
-  - installed tailwind 
+  - installed tailwind
   - installed following libraries:
-    - tailwind 
+    - tailwind
     - axios
     - react-number-format
-    - react-toastify 
+    - react-toastify
     - react-router
     - react-router-dom
     - ziptastic
-    - jquery 
+    - jquery
     - lottie player
   - Added in custom font for ThiccBoi
-  - Added Headless UI 
+  - Added Headless UI
   - installed Hero Icons
   - Created Landing Page jsx & css files
 
-- ## v2.5.0.1 
+- ## v2.5.0.1
+
   - created landing page
   - added function for adding more elements in the landing page
-  - added banner on top 
-  - started function for zipcode validation 
+  - added banner on top
+  - started function for zipcode validation
   - added function for state passs between components
 
+- ## v2.5.0.2
 
-- ## v2.5.0.2 
   - Finalized Initial design
   - added how it works
   - added CTA
-  - added navbar 
+  - added navbar
   - added footer
 
-- ## v2.5.0.3 
+- ## v2.5.0.3
   - Changed Navbar height
   - Optimized landing page
   - added button interactions
   - changed "how it works" section
   - fixed footer
-  
-- ## v2.5.0.4 
+- ## v2.5.0.4
+
   - Finalized landing page
-  - updated navbar 
-  - started api call for zipcode verification which produced a bug 
+  - updated navbar
+  - started api call for zipcode verification which produced a bug
   - created a webpack config file
-  - started a congif ovverrides file 
+  - started a congif ovverrides file
 
 - ## v2.5.0.5
+
   - Added support for routes
+
     - still not done, currently figuring out how to render and switch/navigate
     - fixed API bug <a href="api-bug"> Click here to view fix </a>
     - Got initital first step post done
     - fixed issues with polyfill bug <a href='polyfill'> Click here to view fix </a>
     - New bug with React Router 6 <a href='react-router'> View Here for details </a>
 
-  - ## v2.5.0.6  <a name='latest' id='latest'></a>
+  - ## v2.5.0.6
+
     - Fixed React Router Bug
     - Changed package.json file to remove redundent and neglected libraries
     - Created first step for Age
@@ -117,21 +122,35 @@ npm i
     - Added dynamic footer/header
     - fixed preload and verifcation zipcode issues
     - Added functionality for verification
-## Known Bugs <a name = "bugs"></a>
 
+  - ## v2.5.0.7 <a name='latest' id='latest'></a>
+    - Added animation for steps
+    - Added back buttons for forms
+    - Added Gender Questions
+    - Aded Enrolled Questions
+    - Added dynamic header
+
+## Known Bugs <a name = "bugs"></a>
 
 ## Roadmap <a name = "roadmap"></a>
 
-
 ## Fixed Bugs <a name='fixed' id='fixed'></a>
- ### API get bug: Present on v2.5.0.4 <a name='api-bug'></a>
-  ## Status: FIXED on v2.5.0.5
-  - How we fixed: This Component did catch is the only way we were able to bypass polyfills and allow the api to run correctly. 
-   The way we have it is on initial load, we load the api from the loadZipCode api. Then we let it stay as an intial value which goes into the component did catch button click on submit. Then we update local storage, and value inputs to the api based call 
-  ### Polyfill Bug: Present on v2.5.0.4 <a name='polyfill'></a>
-    ## Status: FIXED on v2.5.0.5
-  - Is tied with API bug but when we make api calls or use a library that uses react 5 or polyfills we need to make sure the library is updated, or need to figure out a work aroud. 
 
-  ### React Router Bug present on v.2.5.0.5 <a name='router-bug'></a>
+### API get bug: Present on v2.5.0.4 <a name='api-bug'></a>
+
+## Status: FIXED on v2.5.0.5
+
+- How we fixed: This Component did catch is the only way we were able to bypass polyfills and allow the api to run correctly.
+  The way we have it is on initial load, we load the api from the loadZipCode api. Then we let it stay as an intial value which goes into the component did catch button click on submit. Then we update local storage, and value inputs to the api based call
+
+### Polyfill Bug: Present on v2.5.0.4 <a name='polyfill'></a>
+
+    ## Status: FIXED on v2.5.0.5
+
+- Is tied with API bug but when we make api calls or use a library that uses react 5 or polyfills we need to make sure the library is updated, or need to figure out a work aroud.
+
+### React Router Bug present on v.2.5.0.5 <a name='router-bug'></a>
+
     ## Status: FIXED on v2.5.0.6
-  - How we fixed: React Router v6 is really functional based, 2.5 is writen component based. We reverted back to 5.3.1 version to utilize component based rendering and routes. Perhaps we may update once we come with a fix or a workaround to use v6.
+
+- How we fixed: React Router v6 is really functional based, 2.5 is writen component based. We reverted back to 5.3.1 version to utilize component based rendering and routes. Perhaps we may update once we come with a fix or a workaround to use v6.
