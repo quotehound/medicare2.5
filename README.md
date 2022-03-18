@@ -112,23 +112,27 @@ npm i
     - fixed issues with polyfill bug <a href='polyfill'> Click here to view fix </a>
     - New bug with React Router 6 <a href='react-router'> View Here for details </a>
 
-  - ## v2.5.0.6
+- ## v2.5.0.6
 
-    - Fixed React Router Bug
-    - Changed package.json file to remove redundent and neglected libraries
-    - Created first step for Age
-      - Added functionality for mapping for buttons
-    - Fixed styling issues
-    - Added dynamic footer/header
-    - fixed preload and verifcation zipcode issues
-    - Added functionality for verification
+  - Fixed React Router Bug
+  - Changed package.json file to remove redundent and neglected libraries
+  - Created first step for Age
+  - Added functionality for mapping for buttons
+  - Fixed styling issues
+  - Added dynamic footer/header
+  - fixed preload and verifcation zipcode issues
+  - Added functionality for verification
 
-  - ## v2.5.0.7 <a name='latest' id='latest'></a>
-    - Added animation for steps
-    - Added back buttons for forms
-    - Added Gender Questions
-    - Aded Enrolled Questions
-    - Added dynamic header
+- ## v2.5.0.7
+
+  - Added animation for steps
+  - Added back buttons for forms
+  - Added Gender Questions
+  - Aded Enrolled Questions
+  - Added dynamic header
+
+- ## v2.5.0.8 <a name='latest' id='latest'></a>
+  - Fixed bug for viewing
 
 ## Known Bugs <a name = "bugs"></a>
 
@@ -136,20 +140,20 @@ npm i
 
 ## Fixed Bugs <a name='fixed' id='fixed'></a>
 
-### API get bug: Present on v2.5.0.4 <a name='api-bug'></a>
+### API get bug: Present on v2.5.0.4 <a name='api-bug' id='api-bug'></a>
 
 ## Status: FIXED on v2.5.0.5
 
 - How we fixed: This Component did catch is the only way we were able to bypass polyfills and allow the api to run correctly.
   The way we have it is on initial load, we load the api from the loadZipCode api. Then we let it stay as an intial value which goes into the component did catch button click on submit. Then we update local storage, and value inputs to the api based call
 
-### Polyfill Bug: Present on v2.5.0.4 <a name='polyfill'></a>
+### Polyfill Bug: Present on v2.5.0.4 <a name='polyfill' id='polyfill' ></a>
 
     ## Status: FIXED on v2.5.0.5
 
 - Is tied with API bug but when we make api calls or use a library that uses react 5 or polyfills we need to make sure the library is updated, or need to figure out a work aroud.
 
-### React Router Bug present on v.2.5.0.5 <a name='router-bug'></a>
+### React Router Bug present on v.2.5.0.5 <a name='router-bug' id='router-bug'></a>
 
     ## Status: FIXED on v2.5.0.6
 

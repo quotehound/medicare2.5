@@ -66,7 +66,7 @@ class LandingPage extends Component {
 
     values.preventDefault();
     let value = document.getElementById('zipCode').value;
-    console.log(fType)
+
 
 
 
