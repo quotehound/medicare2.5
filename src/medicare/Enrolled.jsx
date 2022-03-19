@@ -39,7 +39,6 @@ class Enrolled extends Component {
     const age = urlParams.get('age');
     const enrolled = val;
 
-    console.log('presed')
     this.props.history.push("/gender"
       + "?gclid=" + gclid
       + "&lp=" + lp

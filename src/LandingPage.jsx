@@ -70,7 +70,6 @@ class LandingPage extends Component {
 
 
 
-
     if (isNaN(value)) {
       toast.error('😬 Please enter only numbers!')
       return
@@ -172,7 +171,7 @@ class LandingPage extends Component {
                                 minLength={5}
                                 maxLength={5}
                               />
-                              <p className='text-sm text-gray-400' id='city'>Savings available in {city}, {state}</p>
+                              <p className='text-sm pt-2 text-gray-400' id='city'>Savings available in <span className='underline decoration-wavy decoration-blue-300'>{city}, {state}</span></p>
                             </div>
                             <LandingPageCheckBox />
                             <div>

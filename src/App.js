@@ -8,6 +8,10 @@ import LandingPage from './LandingPage'
 import Age from './Age'
 import Enrolled from './medicare/Enrolled';
 import Gender from './Main Form/Gender';
+import Month from './Main Form/Month';
+import Day from './Main Form/Day';
+import Year from './Main Form/Year';
+import Address from './Main Form/Address';
 class App extends Component {
 
   //* set states for post data 
@@ -32,6 +36,10 @@ class App extends Component {
       coverage_time: 'Yes',
       are_you_currently_enrolled_in_both_medicare_part_a_part_b: '',
       gender: '',
+      month: '',
+      day: '',
+      year: '',
+      address: '',
     }
   }
   render() {
@@ -111,6 +119,55 @@ class App extends Component {
                   });
                 }}
               />
+            </Route>
+
+            <Route path='/month'>
+              <Month
+                setMonth={(month) => {
+                  this.setState({
+                    postData: {
+                      month: month,
+                    },
+                  });
+                }}
+              />
+            </Route>
+
+            <Route path='/day'>
+              <Day
+                setDay={(day) => {
+                  this.setState({
+                    postData: {
+                      day: day,
+                    },
+                  });
+                }}
+              />
+            </Route>
+
+            <Route path='/year'>
+              <Year
+                setYear={(year) => {
+                  this.setState({
+                    postData: {
+                      year: year,
+                    },
+                  });
+                }}
+              />
+            </Route>
+
+            <Route path='/address'>
+              <Address
+                setAddress={(address) => {
+                  this.setState({
+                    postData: {
+                      address: address,
+                    },
+                  });
+                }}
+              />
+
             </Route>
           </Switch>
 

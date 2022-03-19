@@ -131,8 +131,16 @@ npm i
   - Aded Enrolled Questions
   - Added dynamic header
 
-- ## v2.5.0.8 <a name='latest' id='latest'></a>
+- ## v2.5.0.8
+
   - Fixed bug for viewing
+
+- ## v2.5.0.9 <a name='latest' id='latest'></a>
+  - Added Month question
+  - Added Day Question
+  - Added Year Question
+  - Fixed errors with showing correct dates based on months
+  - Added dynamic filter for months
 
 ## Known Bugs <a name = "bugs"></a>
 

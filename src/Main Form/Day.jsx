@@ -6,8 +6,10 @@ import "../forms.css";
 import { withRouter } from "react-router";
 import Fade from "react-reveal/Fade";
 import { LinkWithQuery } from '../BackButton'
+import { fireEvent } from "@testing-library/react";
 
-class Gender extends Component {
+
+class Day extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -24,7 +26,7 @@ class Gender extends Component {
 
     let val = this.state.value;
 
-    this.props.setGender(val);
+    this.props.setDay(val);
 
     const urlSearch = window.location.search;
     const urlParams = new URLSearchParams(urlSearch);
@@ -36,10 +38,12 @@ class Gender extends Component {
     const formType = localStorage.getItem("formType");
     const age = urlParams.get("age");
     const enrolled = urlParams.get("enrolled");
-    const gender = val;
+    const gender = urlParams.get("gender");
+    const month = urlParams.get("month")
+
 
     this.props.history.push(
-      "/month" +
+      "/year" +
       "?gclid=" +
       gclid +
       "&lp=" +
@@ -57,36 +61,39 @@ class Gender extends Component {
       "&enrolled=" +
       enrolled +
       "&gender=" +
-      val
+      gender
+      + "&month=" + month
+      + "&day=" + val
     );
   }
 
   render() {
-    let buttonsTitles = [
-      { title: "Male", id: "Male", value: "Male" },
-      { title: "Female", id: "Female", value: "Female" },
-      { title: "Non-Binary", id: "Non-Binary", value: "Non-Binary" },
-    ];
+
 
     const urlSearch = window.location.search;
     const urlParams = new URLSearchParams(urlSearch);
-    const fType = urlParams.get("formTpye");
+    const month = urlParams.get("month");
 
-    if (fType === "medicare") {
-      this.state.progress = 16;
-    }
+    const moment = require('moment');
 
-    let buttonList = buttonsTitles.map((buttonTitle, index) => {
+    let totalDates = moment('2012-' + month, 'YYYY-MM').daysInMonth().toString();
+
+    const range = (start, end, length = end - start + 1) =>
+      Array.from({ length }, (_, i) => start + i)
+
+    let dates = range(1, totalDates);
+
+    let buttonList = dates.map((date, index) => {
       return (
         <button
-          className="chooseButton border border-blue-500 rounded text-blue-500 hover:bg-blue-500 hover:text-white hover:shadow-lg hover:shadow-blue-500/50 transition duration-200 font-bold"
-          key={buttonTitle.id}
-          data-param={buttonTitle.id}
-          id={buttonTitle.id}
-          value={buttonTitle.value}
+          className="dateButton border border-blue-500 rounded text-blue-500 hover:bg-blue-500 hover:text-white hover:shadow-lg hover:shadow-blue-500/50 transition duration-200 font-bold"
+          key={date}
+          data-param={date}
+          id={date}
+          value={date}
           onClick={this.handleClick}
         >
-          {buttonTitle.title}
+          {date}
         </button>
       );
     });
@@ -100,15 +107,20 @@ class Gender extends Component {
             <div className="max-w-lg w-full space-y-8">
               <div>
                 <h2 className="mt-4 text-center text-4xl font-extrabold text-gray-900">
-                  What Is Your Gender?
+                  What day were you born?
                 </h2>
               </div>
               <form className="mt-8 space-y-6">
-                <div className="w-full space-y-6 relative flex justify-center leading-5">
-                  <div className=" leading-5 buttonBlock">{buttonList}</div>
+                <div className="buttonBlockRow">
+                  <div className="grid justify-center lg:grid-cols-6 lg:gap-2 md:grid-cols-4 gap-2 grid-cols-4">
+                    {buttonList}
+
+
+
+                  </div>
                 </div>
 
-                <LinkWithQuery to='/enrolled'>Back</LinkWithQuery>
+                <LinkWithQuery to='/month'>Back</LinkWithQuery>
               </form>
             </div>
           </div>
@@ -120,4 +132,4 @@ class Gender extends Component {
   }
 }
 
-export default withRouter(Gender);
+export default withRouter(Day);

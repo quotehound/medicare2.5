@@ -6,7 +6,7 @@ export const LinkWithQuery = ({ children, to, ...props }) => {
   return (
     <Link to={to + search} {...props}>
 
-      <button className=" text-gray-400 block rounded-sm   py-4 px-6 mr-2 flex items-center ">
+      <button className=" text-gray-400 block rounded-sm flex   py-4 px-6 mr-2 mt-10 items-center ">
         <svg
           className="h-5 w-5 mr-2 fill-current"
           version="1.1"
