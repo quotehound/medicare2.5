@@ -144,6 +144,7 @@ npm i
   - Added dynamic filter for months
 
 - ## v2.5.0.10 <a name='latest' id='latest'></a>
+
   - Fixed remaining issues with the month/day/year
   - Added name question
   - added address question
@@ -158,6 +159,10 @@ npm i
     - year does now show
   - added all original scripts from v2 code base for GTM - etc
   - Started questions for health
+
+  ## v2.5.0.11
+
+  - Fixed missing bracket issue
 
 ## Known Bugs <a name = "bugs"></a>
 
