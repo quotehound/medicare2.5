@@ -12,6 +12,8 @@ import Month from './Main Form/Month';
 import Day from './Main Form/Day';
 import Year from './Main Form/Year';
 import Address from './Main Form/Address';
+import Name from './Main Form/Name';
+import EmailPhone from './Main Form/EmailPhone';
 class App extends Component {
 
   //* set states for post data 
@@ -40,6 +42,10 @@ class App extends Component {
       day: '',
       year: '',
       address: '',
+      first_name: '',
+      last_name: '',
+      email_address: '',
+      phone_home: '',
     }
   }
   render() {
@@ -54,7 +60,12 @@ class App extends Component {
                 setZipCode={(zipCode) => {
                   this.setState({
                     postData: {
+                      ...this.state.postData,
+
                       zip_code: zipCode,
+
+                      jornaya_lead_id: document.getElementById('leadid_token').value,
+                      trusted_form_cert_id: document.getElementById('xxTrustedFormToken_0').value,
                     },
                   });
                 }}
@@ -62,6 +73,8 @@ class App extends Component {
                 setCity={(city) => {
                   this.setState({
                     postData: {
+                      ...this.state.postData,
+
                       city: city,
                     },
                   });
@@ -70,6 +83,8 @@ class App extends Component {
                 setUState={(state) => {
                   this.setState({
                     postData: {
+                      ...this.state.postData,
+
                       state: state,
                     },
                   });
@@ -78,6 +93,8 @@ class App extends Component {
                 setFormType={(formType) => {
                   this.setState({
                     postData: {
+                      ...this.state.postData,
+
                       form_type: formType,
                     },
                   });
@@ -90,6 +107,8 @@ class App extends Component {
                 setAge={(age) => {
                   this.setState({
                     postData: {
+                      ...this.state.postData,
+
                       over_sixty_five: age,
                     },
                   });
@@ -102,6 +121,8 @@ class App extends Component {
                 setEnrolled={(enrolled) => {
                   this.setState({
                     postData: {
+                      ...this.state.postData,
+
                       are_you_currently_enrolled_in_both_medicare_part_a_part_b: enrolled
                     }
                   })
@@ -114,6 +135,8 @@ class App extends Component {
                 setGender={(gender) => {
                   this.setState({
                     postData: {
+                      ...this.state.postData,
+
                       gender: gender,
                     },
                   });
@@ -126,6 +149,8 @@ class App extends Component {
                 setMonth={(month) => {
                   this.setState({
                     postData: {
+                      ...this.state.postData,
+
                       month: month,
                     },
                   });
@@ -138,6 +163,8 @@ class App extends Component {
                 setDay={(day) => {
                   this.setState({
                     postData: {
+                      ...this.state.postData,
+
                       day: day,
                     },
                   });
@@ -150,7 +177,19 @@ class App extends Component {
                 setYear={(year) => {
                   this.setState({
                     postData: {
+                      ...this.state.postData,
+
                       year: year,
+                    },
+                  });
+                }}
+
+                setDOB={(dob) => {
+                  this.setState({
+                    postData: {
+                      ...this.state.postData,
+
+                      dob: dob,
                     },
                   });
                 }}
@@ -162,12 +201,69 @@ class App extends Component {
                 setAddress={(address) => {
                   this.setState({
                     postData: {
+                      ...this.state.postData,
+
                       address: address,
                     },
                   });
                 }}
               />
 
+            </Route>
+
+            <Route path='/name'>
+              <Name
+                setFName={(fName) => {
+                  this.setState({
+                    postData: {
+                      ...this.state.postData,
+
+                      first_name: fName
+                    },
+                  });
+                }}
+
+                setLName={(lName) => {
+                  this.setState({
+                    postData: {
+                      ...this.state.postData,
+
+                      last_name: lName,
+                    },
+                  });
+
+                  console.log(this.postData)
+
+                }}
+              />
+            </Route>
+
+            <Route path='/email-phone'>
+              <EmailPhone
+                setEmail={(email) => {
+                  this.setState({
+                    postData: {
+                      ...this.state.postData,
+
+                      email: email,
+                    },
+                  });
+                }}
+
+                setPhone={(phone) => {
+                  this.setState({
+                    postData: {
+                      ...this.state.postData,
+
+                      phone_home: phone
+                    }
+                  })
+                }}
+
+                postData={this.state.postData}
+
+
+              />
             </Route>
           </Switch>
 

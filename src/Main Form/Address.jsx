@@ -9,6 +9,7 @@ import { LinkWithQuery } from "../BackButton";
 import $ from "jquery";
 import { toast, ToastContainer } from "react-toastify";
 
+
 class Address extends Component {
   constructor(props) {
     super(props);
@@ -17,15 +18,15 @@ class Address extends Component {
       progress: 10,
     };
     this.handleClick = this.handleClick.bind(this);
-  }
 
+  }
 
   handleClick = (value) => {
 
     value.preventDefault();
 
 
-    let val = document.getElementById("adress").value;
+    let val = document.getElementById('address').value
 
     if (val.length < 5) {
       toast.error('Please enter a valid address')
@@ -55,7 +56,7 @@ class Address extends Component {
 
 
     this.props.history.push(
-      "/address" +
+      "/name" +
       "?gclid=" +
       gclid +
       "&lp=" +
@@ -105,8 +106,10 @@ class Address extends Component {
       this.state.progress = 16;
     }
 
+
     return (
       <div className="bg-[#F3F5FF] ">
+
         <NavBarMedicare />
         <MedicareBanner setProgress={this.state.progress} />
         <ToastContainer limit={1} position="top-center" theme="colored" />
@@ -127,9 +130,11 @@ class Address extends Component {
                       name="address"
                       placeholder="123 Main Street"
                       pattern="\d*"
-                      id="addressField1"
+                      id="address"
+                      onChange={this.state.address}
 
                     />
+
                   </div>
                   <button
                     type="submit"
@@ -158,11 +163,11 @@ class Address extends Component {
                 <LinkWithQuery to="/year">Back</LinkWithQuery>
               </form>
             </div>
-          </div>
-        </Fade>
+          </div >
+        </Fade >
 
         <FooterMedicare />
-      </div>
+      </div >
     );
   }
 }

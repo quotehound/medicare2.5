@@ -10,7 +10,7 @@ import $ from "jquery";
 import { toast, ToastContainer } from "react-toastify";
 
 
-class Year extends Component {
+class Name extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -18,38 +18,31 @@ class Year extends Component {
       progress: 10,
     };
     this.handleClick = this.handleClick.bind(this);
+
   }
 
-  handleClick = (event) => {
+  handleClick = (value) => {
 
-    event.preventDefault();
-    let param = document.getElementById("year").value;
-    this.state.value = param;
-    let val = this.state.value;
+    value.preventDefault();
 
-    if (isNaN(val)) {
-      toast.error("Enter A correct year!");
-      $(':input[type="submit"]').prop("disabled", true);
-      $(':input[type="submit"]').addClass("disabled cursor-not-allowed");
-      return false;
+
+    let fName = document.getElementById('fName').value;
+    let lName = document.getElementById('lName').value;
+
+
+    if (fName.length < 2 || lName.length < 2) {
+      toast.error('Please Enter A Valid Name');
+
+      return;
     }
-    if (val < 1900 || val > 2005) {
-      toast.error("Enter A correct year!");
-      $(':input[type="submit"]').prop("disabled", true);
-      $(':input[type="submit"]').addClass("disabled cursor-not-allowed");
-      return false;
-    }
-    this.validateYear(param);
-  };
 
-  validateYear = (value) => {
 
-    let val = document.getElementById("year").value;
     toast.dismiss();
     $(':input[type="submit"]').prop("disabled", false);
     $(':input[type="submit"]').removeClass("disabled cursor-not-allowed");
 
-    this.props.setYear(val);
+    this.props.setFName(fName);
+    this.props.setLName(lName);
 
     const urlSearch = window.location.search;
     const urlParams = new URLSearchParams(urlSearch);
@@ -63,14 +56,12 @@ class Year extends Component {
     const enrolled = urlParams.get("enrolled");
     const month = urlParams.get("month")
     const day = urlParams.get("day")
-
-    let dob = month + '/' + day + '/' + val
-
-    this.props.setDOB(dob);
+    const year = urlParams.get("year");
+    const address = urlParams.get('address')
 
 
     this.props.history.push(
-      "/address" +
+      "/email-phone" +
       "?gclid=" +
       gclid +
       "&lp=" +
@@ -92,12 +83,18 @@ class Year extends Component {
       "&day=" +
       day +
       "&year=" +
-      val
+      year +
+      "&address=" +
+      address +
+      "&first_name=" + fName +
+      "&last_name=" + lName
 
     );
   };
 
   render() {
+
+
     const urlSearch = window.location.search;
     const urlParams = new URLSearchParams(urlSearch);
     const fType = urlParams.get("formTpye");
@@ -116,8 +113,10 @@ class Year extends Component {
       this.state.progress = 16;
     }
 
+
     return (
       <div className="bg-[#F3F5FF] ">
+
         <NavBarMedicare />
         <MedicareBanner setProgress={this.state.progress} />
         <ToastContainer limit={1} position="top-center" theme="colored" />
@@ -126,21 +125,30 @@ class Year extends Component {
             <div className="max-w-lg w-full space-y-8">
               <div>
                 <h2 className="mt-4 text-center text-4xl font-extrabold text-gray-900">
-                  What Year Were You Born In?
+                  What is your Name?
                 </h2>
               </div>
               <form className="mt-8 space-y-6">
-                <div className=" space-y-6 relative w-1/2 items-center justify-center m-auto">
+                <div className=" space-y-6 relative w-3/4 items-center justify-center m-auto">
                   <div className=" leading-5 ">
+                    <input
+                      className="appearance-none p-3 mb-10  text-lg font-semibold leading-none bg-white rounded text-blue-500 zipInput "
+                      type="text"
+                      name="fName"
+                      placeholder="First Name"
+                      id="fName"
+
+                    />
+
                     <input
                       className="appearance-none p-3  text-lg font-semibold leading-none bg-white rounded text-blue-500 zipInput "
                       type="text"
-                      name="year"
-                      placeholder="####"
-                      pattern="\d*"
-                      id="year"
-                      maxLength={4}
+                      name="lName"
+                      placeholder="Last Name"
+                      id="lName"
+
                     />
+
                   </div>
                   <button
                     type="submit"
@@ -166,16 +174,16 @@ class Year extends Component {
                   </button>
                 </div>
 
-                <LinkWithQuery to="/day">Back</LinkWithQuery>
+                <LinkWithQuery to="/address">Back</LinkWithQuery>
               </form>
             </div>
-          </div>
-        </Fade>
+          </div >
+        </Fade >
 
         <FooterMedicare />
-      </div>
+      </div >
     );
   }
 }
 
-export default withRouter(Year);
+export default withRouter(Name);

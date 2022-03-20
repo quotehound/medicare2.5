@@ -135,12 +135,29 @@ npm i
 
   - Fixed bug for viewing
 
-- ## v2.5.0.9 <a name='latest' id='latest'></a>
+- ## v2.5.0.9
+
   - Added Month question
   - Added Day Question
   - Added Year Question
   - Fixed errors with showing correct dates based on months
   - Added dynamic filter for months
+
+- ## v2.5.0.10 <a name='latest' id='latest'></a>
+  - Fixed remaining issues with the month/day/year
+  - Added name question
+  - added address question
+  - added email + phone question
+  - wrapped up all post data updates
+  - wrapped up data gathering for post
+  - started post but there are issues
+    - first name does not show
+    - form type does not show
+    - gclid params data is incorrect
+    - phone number does not show
+    - year does now show
+  - added all original scripts from v2 code base for GTM - etc
+  - Started questions for health
 
 ## Known Bugs <a name = "bugs"></a>
 
