@@ -58,13 +58,13 @@ class ThankYou extends Component {
 
                 </h2>
               </div>
-              <form className="mt-8 space-y-6">
-                <div className="w-full space-y-6 relative flex justify-center leading-5">
-                  <MedicareMA />
-                  <MedicareCM moduleId="1658" phoneNumber={tele} />
-                </div>
 
-              </form>
+              <div className="w-full space-y-6 relative flex justify-center leading-5">
+                <MedicareMA />
+                <MedicareCM moduleId="1658" phoneNumber={tele} />
+              </div>
+
+
             </div>
           </div>
         </Fade>

@@ -16,6 +16,13 @@ import Name from './Main Form/Name';
 import EmailPhone from './Main Form/EmailPhone';
 import LottieAnim from './Main Form/lottie';
 import ThankYou from './Main Form/ThankYou';
+
+//* Import Health Care Route
+import CoverageTime from './health/CoverageTime';
+import Income from './health/Income';
+import HeightWeight from './health/HeightWeights';
+import HouseHold from './health/HouseHold';
+import PreExist from './health/PreExist';
 class App extends Component {
 
   //* set states for post data 
@@ -39,6 +46,13 @@ class App extends Component {
       over_sixty_five: '',
       coverage_time: 'Yes',
       are_you_currently_enrolled_in_both_medicare_part_a_part_b: '',
+      coverage_time: '',
+      household_income: '',
+      height: '',
+      weight: '',
+      household_size: '',
+      health_insurance_plan: "",
+      pre_existing_conditions: "",
       gender: '',
       month: '',
       day: '',
@@ -131,6 +145,89 @@ class App extends Component {
                 }}
               />
             </Route>
+
+            {/* Health Care Routes */}
+            <Route path='/coverage-time'>
+              <CoverageTime
+                setCoverage={(coverage) => {
+                  this.setState({
+                    postData: {
+                      ...this.state.postData,
+                      coverage_time: coverage
+                    }
+                  })
+                }}
+              />
+            </Route>
+
+            <Route path='/income'>
+              <Income
+                setIncome={(income) => {
+                  this.setState({
+                    postData: {
+                      ...this.state.postData,
+                      household_income: income
+                    }
+                  })
+                }}
+              />
+            </Route>
+
+            <Route path='/height-weight'>
+              <HeightWeight
+
+                setHeight={(height) => {
+                  this.setState({
+                    postData: {
+                      ...this.state.postData,
+                      height: height
+                    },
+                  })
+                }}
+
+                setWeight={(weight) => {
+                  this.setState({
+                    postData: {
+                      ...this.state.postData,
+                      weight: weight
+                    }
+                  })
+                }}
+
+              />
+            </Route>
+
+            <Route path='/household'>
+              <HouseHold
+                setAmount={(amount) => {
+                  this.setState({
+                    postData: {
+                      ...this.state.postData,
+                      household_size: amount
+                    }
+                  })
+                }}
+
+              />
+            </Route>
+
+            <Route path='/preexist'>
+              <PreExist
+                setPreexist={(prexist) => {
+                  this.setState({
+                    postData: {
+                      ...this.state.postData,
+                      health_insurance_plan: 'Individual Family',
+                      pre_existing_conditions: 'no',
+                    }
+                  })
+                }}
+
+              />
+            </Route>
+
+
+
 
             <Route path='/gender'>
               <Gender
