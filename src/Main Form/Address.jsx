@@ -130,7 +130,6 @@ class Address extends Component {
                       type="text"
                       name="address"
                       placeholder="123 Main Street"
-                      pattern="\d*"
                       id="address"
                       onChange={this.state.address}
 

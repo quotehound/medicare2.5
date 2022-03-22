@@ -149,6 +149,8 @@ class HeightWeight extends Component {
                       type="text"
                       name="inches"
                       placeholder="Inches"
+                      pattern="\d*"
+
                       id="inches"
                       onChange={this.setHeight}
                       maxLength={2}
@@ -163,6 +165,8 @@ class HeightWeight extends Component {
                     placeholder="Weight"
                     id="weight"
                     onChange={this.setWeight}
+                    pattern="\d*"
+
                     maxLength={3}
 
                   />

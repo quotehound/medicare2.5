@@ -177,8 +177,26 @@ npm i
   - added final questions and posting for medicare route
 
 - ## v2.5.0.13
+
   - Added thank you page
   - Added dynamic MA and CM modules
+
+- ## v2.5.0.14
+
+  - Added all health care routes
+    - Coverage
+    - Height Weight
+    - Income
+    - Household total
+    - Pre Existing
+  - Added dynamic header / footer
+  - finalzed post questions
+  - Need to figure out how to hold routes from health to main form questions
+  - need to figure out dynamic header for main form questions
+  - need to figure out MA + CM dynamic
+
+- ## v2.5.0.15
+  - quick fix for wrong pattern type on certain fields
 
 ## Known Bugs <a name = "bugs"></a>
 
