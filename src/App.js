@@ -14,6 +14,7 @@ import Year from './Main Form/Year';
 import Address from './Main Form/Address';
 import Name from './Main Form/Name';
 import EmailPhone from './Main Form/EmailPhone';
+import LottieAnim from './Main Form/lottie';
 import ThankYou from './Main Form/ThankYou';
 class App extends Component {
 
@@ -263,6 +264,8 @@ class App extends Component {
 
               />
             </Route>
+
+            <Route path='/confirm' component={LottieAnim} />
 
             <Route path='/thank-you'>
               <ThankYou />

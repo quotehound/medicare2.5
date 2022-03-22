@@ -160,11 +160,11 @@ npm i
   - added all original scripts from v2 code base for GTM - etc
   - Started questions for health
 
-  ## v2.5.0.11
+- ## v2.5.0.11
 
   - Fixed missing bracket issue
 
-  ## v.2.5.0.12
+- ## v.2.5.0.12
 
   - Finalized the post from medicare route
   - fixed dynamic header from medicare
@@ -175,6 +175,10 @@ npm i
   - Added script for media alpha
   - added script for connect me module
   - added final questions and posting for medicare route
+
+- ## v2.5.0.13
+  - Added thank you page
+  - Added dynamic MA and CM modules
 
 ## Known Bugs <a name = "bugs"></a>
 

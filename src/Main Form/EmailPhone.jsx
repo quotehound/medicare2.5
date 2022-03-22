@@ -59,7 +59,7 @@ class EmailPhone extends Component {
       return;
     }
 
-    let realPhone = phone.replace(/[0-9]/g, '');
+    let realPhone = phone.replace(/\D/g, "");
 
     toast.dismiss();
     $(':input[type="submit"]').prop("disabled", false);
@@ -92,7 +92,7 @@ class EmailPhone extends Component {
 
 
     this.props.history.push(
-      "/thank-you" +
+      "/confirm" +
       "?gclid=" +
       gclid +
       "&lp=" +
