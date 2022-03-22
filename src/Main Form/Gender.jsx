@@ -33,7 +33,7 @@ class Gender extends Component {
     const zipCode = localStorage.getItem("zipCode");
     const city = localStorage.getItem("city");
     const state = localStorage.getItem("state");
-    const formType = localStorage.getItem("formType");
+    const formType = urlParams.get("formType");
     const age = urlParams.get("age");
     const enrolled = urlParams.get("enrolled");
     const gender = val;
@@ -70,10 +70,10 @@ class Gender extends Component {
 
     const urlSearch = window.location.search;
     const urlParams = new URLSearchParams(urlSearch);
-    const fType = urlParams.get("formTpye");
+    const fType = urlParams.get("formType");
 
     if (fType === "medicare") {
-      this.state.progress = 16;
+      this.state.progress = 33;
     }
 
     let buttonList = buttonsTitles.map((buttonTitle, index) => {

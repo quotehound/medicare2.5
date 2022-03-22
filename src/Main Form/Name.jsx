@@ -14,20 +14,37 @@ class Name extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: "",
+      first_name: "",
+      last_name: "",
       progress: 10,
     };
     this.handleClick = this.handleClick.bind(this);
 
   }
 
+  setFirstName = (value) => {
+
+    let fName = document.getElementById('firstName').value;
+
+    this.props.setFName(fName)
+
+  }
+
+  setLastName = (value) => {
+    let lName = document.getElementById('lastName').value;
+
+    this.props.setLName(lName)
+  }
+
   handleClick = (value) => {
 
     value.preventDefault();
 
+    let fName = document.getElementById('firstName').value;
+    let lName = document.getElementById('lastName').value;
 
-    let fName = document.getElementById('fName').value;
-    let lName = document.getElementById('lName').value;
+    this.state.first_name = fName;
+    this.state.last_name = lName
 
 
     if (fName.length < 2 || lName.length < 2) {
@@ -41,8 +58,6 @@ class Name extends Component {
     $(':input[type="submit"]').prop("disabled", false);
     $(':input[type="submit"]').removeClass("disabled cursor-not-allowed");
 
-    this.props.setFName(fName);
-    this.props.setLName(lName);
 
     const urlSearch = window.location.search;
     const urlParams = new URLSearchParams(urlSearch);
@@ -97,7 +112,6 @@ class Name extends Component {
 
     const urlSearch = window.location.search;
     const urlParams = new URLSearchParams(urlSearch);
-    const fType = urlParams.get("formTpye");
 
     $(document).ready(function () {
       $(':input[type="submit"]').prop("disabled", true);
@@ -109,10 +123,11 @@ class Name extends Component {
       });
     });
 
-    if (fType === "medicare") {
-      this.state.progress = 16;
-    }
+    const fType = urlParams.get("formType");
 
+    if (fType === "medicare") {
+      this.state.progress = 91;
+    }
 
     return (
       <div className="bg-[#F3F5FF] ">
@@ -134,18 +149,20 @@ class Name extends Component {
                     <input
                       className="appearance-none p-3 mb-10  text-lg font-semibold leading-none bg-white rounded text-blue-500 zipInput "
                       type="text"
-                      name="fName"
+                      name="first_name"
                       placeholder="First Name"
-                      id="fName"
+                      id="firstName"
+                      onChange={this.setFirstName}
 
                     />
 
                     <input
                       className="appearance-none p-3  text-lg font-semibold leading-none bg-white rounded text-blue-500 zipInput "
                       type="text"
-                      name="lName"
+                      name="last_name"
                       placeholder="Last Name"
-                      id="lName"
+                      id="lastName"
+                      onChange={this.setLastName}
 
                     />
 

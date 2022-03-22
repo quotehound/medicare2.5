@@ -52,6 +52,10 @@
   line-height: 30px;
 }
 
+.numberFont {
+  font-family: ThiccBoiThiccAF;
+}
+
 .zipInput {
   height: 75px;
   background-color: #f5f9ff;
@@ -63,4 +67,10 @@
   text-align: center;
   
   
+}
+.lottie{
+  height: 60vh;
+  width: auto;
+  margin: 0 auto;
+
 }

@@ -18,16 +18,29 @@ export default class FooterMedicare extends Component {
       <footer className="bg-white text-sm text-left">
         <div className="max-w-7xl mx-auto py-12 px-4 overflow-hidden sm:px-6 lg:px-8">
 
-          <nav className="-mx-5 -my-2 flex flex-wrap justify-left" aria-label="Footer">
+          <nav className="grid grid-cols-5 gap-4 justify-center" aria-label="Footer">
 
             {navigation.main.map((item) => (
               <div key={item.name} className="px-5 py-2">
                 <a href={item.href} className="text-base text-gray-500 hover:text-gray-900 hover:underline hover:decoration-wavy hover:decoration-blue-300">
                   {item.name}
                 </a>
+
+
               </div>
             ))}
+
+            <span className="flex">
+
+
+
+
+
+            </span>
+
+
           </nav>
+
 
           <p className="mt-8 text-center justify-center text-base text-gray-400">&copy; 2022 UsMedicare Quotes, Inc. All rights reserved.</p>{''}
           <p className='text-gray-400 text-left'>

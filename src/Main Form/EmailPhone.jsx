@@ -9,7 +9,6 @@ import { LinkWithQuery } from "../BackButton";
 import $ from "jquery";
 import { toast, ToastContainer } from "react-toastify";
 import Axios from 'axios';
-import Input from 'react-phone-number-input/input'
 import PhoneInput from "react-phone-number-input/input";
 
 
@@ -17,7 +16,8 @@ class EmailPhone extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: "",
+      email: " ",
+      phone: " ",
       progress: 10,
       error: "",
       loading: false,
@@ -26,14 +26,21 @@ class EmailPhone extends Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
+  postEmail = (values) => {
+    let email = document.getElementById('email').value;
+
+    this.state.email = email;
+
+    this.props.setEmail(email)
+  }
+
   postPhone = (values) => {
 
     let phone = document.getElementById('phone_home').value;
 
     var realPhone = phone.replace(/\D/g, "");
 
-    console.log("updated phone is " + realPhone)
-
+    this.props.setPhone(realPhone);
 
   }
 
@@ -58,8 +65,7 @@ class EmailPhone extends Component {
     $(':input[type="submit"]').prop("disabled", false);
     $(':input[type="submit"]').removeClass("disabled cursor-not-allowed");
 
-    this.props.setEmail(email);
-    this.props.setPhone(realPhone);
+
 
     const urlSearch = window.location.search;
     const urlParams = new URLSearchParams(urlSearch);
@@ -86,7 +92,7 @@ class EmailPhone extends Component {
 
 
     this.props.history.push(
-      "/email-phone" +
+      "/thank-you" +
       "?gclid=" +
       gclid +
       "&lp=" +
@@ -130,11 +136,6 @@ class EmailPhone extends Component {
         if (res.status === 200) {
           this.setState({
             loading: false,
-          }, () => {
-            this.props.nextStep();
-
-            this.props.callMediaAlpha();
-
           });
         }
       })
@@ -154,7 +155,6 @@ class EmailPhone extends Component {
 
     const urlSearch = window.location.search;
     const urlParams = new URLSearchParams(urlSearch);
-    const fType = urlParams.get("formTpye");
     const fName = urlParams.get('first_name');
 
     $(document).ready(function () {
@@ -167,10 +167,11 @@ class EmailPhone extends Component {
       });
     });
 
-    if (fType === "medicare") {
-      this.state.progress = 16;
-    }
+    const fType = urlParams.get("formType");
 
+    if (fType === "medicare") {
+      this.state.progress = 100;
+    }
 
     return (
       <div className="bg-[#F3F5FF] ">
@@ -192,9 +193,11 @@ class EmailPhone extends Component {
                     <input
                       className="appearance-none p-3 mb-10  text-lg font-semibold leading-none bg-white rounded text-blue-500 zipInput "
                       type="email"
+                      value={this.state.email}
                       name="email"
                       placeholder="Email"
                       id="email"
+                      onChange={this.postEmail}
 
                     />
 
@@ -213,6 +216,13 @@ class EmailPhone extends Component {
 
 
                   </div>
+
+                  <p className="tcpa w-full text-xs text-gray-400">
+                    <label htmlFor="leadid_tcpa_disclosure">
+                      <input type="hidden" id="leadid_tcpa_disclosure" /> By pressing Get My Free Quote, I am providing my express written consent and e-signature which may be revoked at any time. I consent to receive emails, telephone calls, text messages, artificial or prerecorded messages from Us Medicare Quotes its affiliates, and/or any of our <a className='underline decoration-wavy decoration-blue-300' href="https://www.quotehound.com/partners"> marketing partners </a>  (or their service provider partners on their behalf) regarding their products and services (including Medicare Advantage plans, Medicare Part D Prescription Drug Plans or Medicare Supplement Insurance Plans) at the email address and telephone number provided, including my wireless phone number (if provided) utilizing an automated telephone dialing system. Telephone companies may impose additional charges on subscribers for messages.  I understand that I am not required to grant this consent as a condition of purchasing any property, goods, or services from the foregoing companies or prerecorded or artificial voices. (1) I consent to electronic video monitoring and recordation of my activities on this Site. I may call <a className='underline decoration-wavy decoration-blue-300' href='tel:18884261036'> (888) 426-1036 </a> to speak with someone about obtaining an insurance quote.   I acknowledge that I may revoke my consent by emailing “STOP” to <a className='underline decoration-wavy decoration-blue-300' href="mailto:optout@quotehound.com" >optout@quotehound.com.</a>  (2) I agree to this website's <a className='underline decoration-wavy decoration-blue-300' href="https://www.quotehound.com/privacy-policy"> Privacy Policy </a> and  <a className='underline decoration-wavy decoration-blue-300' href="https://www.quotehound.com/terms-conditions">Terms of Use</a>
+
+                    </label>
+                  </p>
 
                   <button
                     type="submit"
@@ -237,12 +247,7 @@ class EmailPhone extends Component {
                     </svg>
                   </button>
                 </div>
-                <p className="tcpa w-full text-xs text-gray-400">
-                  <label htmlFor="leadid_tcpa_disclosure">
-                    <input type="hidden" id="leadid_tcpa_disclosure" /> By pressing Get My Free Quote, I am providing my express written consent and e-signature which may be revoked at any time. I consent to receive emails, telephone calls, text messages, artificial or prerecorded messages from Us Medicare Quotes its affiliates, and/or any of our <a className='underline decoration-wavy decoration-blue-300' href="https://www.quotehound.com/partners"> marketing partners </a>  (or their service provider partners on their behalf) regarding their products and services (including Medicare Advantage plans, Medicare Part D Prescription Drug Plans or Medicare Supplement Insurance Plans) at the email address and telephone number provided, including my wireless phone number (if provided) utilizing an automated telephone dialing system. Telephone companies may impose additional charges on subscribers for messages.  I understand that I am not required to grant this consent as a condition of purchasing any property, goods, or services from the foregoing companies or prerecorded or artificial voices. (1) I consent to electronic video monitoring and recordation of my activities on this Site. I may call <a className='underline decoration-wavy decoration-blue-300' href='tel:18884261036'> (888) 426-1036 </a> to speak with someone about obtaining an insurance quote.   I acknowledge that I may revoke my consent by emailing “STOP” to <a className='underline decoration-wavy decoration-blue-300' href="mailto:optout@quotehound.com" >optout@quotehound.com.</a>  (2) I agree to this website's <a className='underline decoration-wavy decoration-blue-300' href="https://www.quotehound.com/privacy-policy"> Privacy Policy </a> and  <a className='underline decoration-wavy decoration-blue-300' href="https://www.quotehound.com/terms-conditions">Terms of Use</a>
 
-                  </label>
-                </p>
                 <LinkWithQuery to="/name">Back</LinkWithQuery>
               </form>
             </div>

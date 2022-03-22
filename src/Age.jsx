@@ -40,7 +40,6 @@ class Age extends Component {
     const zipCode = localStorage.getItem("zipCode");
     const city = localStorage.getItem("city");
     const state = localStorage.getItem("state");
-    const formType = localStorage.getItem("formType");
     const age = val;
 
     this.props.history.push("/enrolled"
@@ -49,7 +48,7 @@ class Age extends Component {
       + "&zipcode=" + zipCode
       + "&city=" + city
       + "&state=" + state
-      + "&formType=" + formType
+      + "&formType=medicare"
       + "&age=" + val
     );
   }
@@ -66,7 +65,6 @@ class Age extends Component {
     const zipCode = localStorage.getItem("zipCode");
     const city = localStorage.getItem("city");
     const state = localStorage.getItem("state");
-    const formType = localStorage.getItem("formType");
     const age = val;
 
     this.props.history.push("/coverage-time"
@@ -75,7 +73,7 @@ class Age extends Component {
       + "&zipcode=" + zipCode
       + "&city=" + city
       + "&state=" + state
-      + "&formType=" + formType
+      + "&formType=health"
       + "&age=" + val
     );
   }

@@ -14,6 +14,7 @@ import Year from './Main Form/Year';
 import Address from './Main Form/Address';
 import Name from './Main Form/Name';
 import EmailPhone from './Main Form/EmailPhone';
+import ThankYou from './Main Form/ThankYou';
 class App extends Component {
 
   //* set states for post data 
@@ -213,27 +214,24 @@ class App extends Component {
 
             <Route path='/name'>
               <Name
-                setFName={(fName) => {
+                setFName={(v) => {
                   this.setState({
                     postData: {
                       ...this.state.postData,
-
-                      first_name: fName
+                      first_name: v,
                     },
                   });
+                  console.log(this.state.postData)
+
                 }}
 
-                setLName={(lName) => {
+                setLName={(v) => {
                   this.setState({
                     postData: {
                       ...this.state.postData,
-
-                      last_name: lName,
+                      last_name: v,
                     },
                   });
-
-                  console.log(this.postData)
-
                 }}
               />
             </Route>
@@ -245,7 +243,7 @@ class App extends Component {
                     postData: {
                       ...this.state.postData,
 
-                      email: email,
+                      email_address: email,
                     },
                   });
                 }}
@@ -255,7 +253,7 @@ class App extends Component {
                     postData: {
                       ...this.state.postData,
 
-                      phone_home: phone
+                      phone_home: phone,
                     }
                   })
                 }}
@@ -264,6 +262,10 @@ class App extends Component {
 
 
               />
+            </Route>
+
+            <Route path='/thank-you'>
+              <ThankYou />
             </Route>
           </Switch>
 

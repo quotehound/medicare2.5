@@ -164,6 +164,18 @@ npm i
 
   - Fixed missing bracket issue
 
+  ## v.2.5.0.12
+
+  - Finalized the post from medicare route
+  - fixed dynamic header from medicare
+  - Shows correct % in progress bar now
+  - started thank you page
+  - started animation for lottie
+  - started thank you page
+  - Added script for media alpha
+  - added script for connect me module
+  - added final questions and posting for medicare route
+
 ## Known Bugs <a name = "bugs"></a>
 
 ## Roadmap <a name = "roadmap"></a>

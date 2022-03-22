@@ -90,8 +90,11 @@ class Address extends Component {
 
     const urlSearch = window.location.search;
     const urlParams = new URLSearchParams(urlSearch);
-    const fType = urlParams.get("formTpye");
+    const fType = urlParams.get("formType");
 
+    if (fType === "medicare") {
+      this.state.progress = 83;
+    }
     $(document).ready(function () {
       $(':input[type="submit"]').prop("disabled", true);
       $('input[type="text"]').keyup(function () {
@@ -102,9 +105,7 @@ class Address extends Component {
       });
     });
 
-    if (fType === "medicare") {
-      this.state.progress = 16;
-    }
+
 
 
     return (

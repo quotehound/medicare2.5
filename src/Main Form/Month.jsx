@@ -129,10 +129,10 @@ class Month extends Component {
 
     const urlSearch = window.location.search;
     const urlParams = new URLSearchParams(urlSearch);
-    const fType = urlParams.get("formTpye");
+    const fType = urlParams.get("formType");
 
     if (fType === "medicare") {
-      this.state.progress = 16;
+      this.state.progress = 41;
     }
 
     let buttonList = buttonsTitles.map((buttonTitle, index) => {

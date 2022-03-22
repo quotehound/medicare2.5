@@ -86,6 +86,7 @@ class LandingPage extends Component {
   nextStep() {
 
 
+
     const urlSearch = window.location.search;
     const urlParams = new URLSearchParams(urlSearch);
 

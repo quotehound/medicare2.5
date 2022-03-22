@@ -100,7 +100,11 @@ class Year extends Component {
   render() {
     const urlSearch = window.location.search;
     const urlParams = new URLSearchParams(urlSearch);
-    const fType = urlParams.get("formTpye");
+    const fType = urlParams.get("formType");
+
+    if (fType === "medicare") {
+      this.state.progress = 62;
+    }
 
     $(document).ready(function () {
       $(':input[type="submit"]').prop("disabled", true);
@@ -112,9 +116,6 @@ class Year extends Component {
       });
     });
 
-    if (fType === "medicare") {
-      this.state.progress = 16;
-    }
 
     return (
       <div className="bg-[#F3F5FF] ">

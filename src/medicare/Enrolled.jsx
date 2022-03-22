@@ -14,7 +14,7 @@ class Enrolled extends Component {
     super(props);
     this.state = {
       value: "Yes",
-      progress: 10,
+      progress: 16,
     };
     this.handleClick = this.handleClick.bind(this);
   }
@@ -35,9 +35,11 @@ class Enrolled extends Component {
     const zipCode = localStorage.getItem("zipCode");
     const city = localStorage.getItem("city");
     const state = localStorage.getItem("state");
-    const formType = localStorage.getItem("formType");
+    const formType = urlParams.get("formType");
     const age = urlParams.get('age');
     const enrolled = val;
+
+    localStorage.setItem('formType', formType)
 
     this.props.history.push("/gender"
       + "?gclid=" + gclid
@@ -61,7 +63,7 @@ class Enrolled extends Component {
 
     const urlSearch = window.location.search;
     const urlParams = new URLSearchParams(urlSearch);
-    const fType = urlParams.get('formTpye');
+    const fType = urlParams.get('formType');
 
     if (fType === 'medicare') {
       this.state.progress = 16;

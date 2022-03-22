@@ -73,6 +73,11 @@ class Day extends Component {
     const urlSearch = window.location.search;
     const urlParams = new URLSearchParams(urlSearch);
     const month = urlParams.get("month");
+    const fType = urlParams.get("formType");
+
+    if (fType === "medicare") {
+      this.state.progress = 50;
+    }
 
     const moment = require('moment');
 
