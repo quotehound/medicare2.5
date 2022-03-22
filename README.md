@@ -143,7 +143,7 @@ npm i
   - Fixed errors with showing correct dates based on months
   - Added dynamic filter for months
 
-- ## v2.5.0.10 <a name='latest' id='latest'></a>
+- ## v2.5.0.10
 
   - Fixed remaining issues with the month/day/year
   - Added name question
@@ -196,7 +196,11 @@ npm i
   - need to figure out MA + CM dynamic
 
 - ## v2.5.0.15
+
   - quick fix for wrong pattern type on certain fields
+
+- ## v2.5.0.16 <a name='latest' id='latest'></a>
+  - Quick fix for css issues on confirm page
 
 ## Known Bugs <a name = "bugs"></a>
 

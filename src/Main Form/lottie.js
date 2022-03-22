@@ -64,7 +64,7 @@ class LottieAnim extends Component {
         "&first_name=" + fName +
         "&last_name=" + lName +
         "&home_phone=" + phone)
-    }, 5000)
+    }, 650000)
 
   }
 
@@ -86,10 +86,10 @@ class LottieAnim extends Component {
       <div className="bg-[#F3F5FF] ">
         <NavBarMedicare />
 
-        <section className="py-8 w-1/2 mx-auto" id='lottie'>
-          <div className="container px-4 mx-auto">
-            <div className="py-12 bg-blue-500   overflow-hidden rounded-lg">
-              <div className="flex flex-wrap">
+        <section className="py-8 w-full" id='lottie'>
+          <div className="container px-4">
+            <div className="py-5 bg-blue-500   overflow-hidden rounded-lg">
+              <div className="flex flex-wrap align-middle">
                 <div className="w-full md:w-full px-6 md:pl-12 lg:pr-0 mb-10 md:mb-0 text-center">
                   <h3 className="mb-2 lg:text-4xl sm:text-lg font-medium text-white text-center">
                     <span className="text-white" data-config-id="header-p1">{name}, </span>
