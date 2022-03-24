@@ -131,7 +131,9 @@ class Address extends Component {
                       name="address"
                       placeholder="123 Main Street"
                       id="address"
+                      autoComplete="street-address"
                       onChange={this.state.address}
+                      required
 
                     />
 

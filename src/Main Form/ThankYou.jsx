@@ -16,17 +16,6 @@ class ThankYou extends Component {
 
 
 
-  componentDidMount() {
-    setTimeout(() => {
-
-
-
-
-    }, 5000)
-
-  }
-
-
   render() {
 
     const urlSearch = window.location.search;
@@ -61,7 +50,6 @@ class ThankYou extends Component {
 
               <div className="w-full space-y-6 relative flex justify-center leading-5">
                 <MedicareMA />
-                <MedicareCM moduleId="1658" phoneNumber={tele} />
               </div>
 
 
@@ -69,6 +57,7 @@ class ThankYou extends Component {
           </div>
         </Fade>
 
+        <MedicareCM moduleId="1658" phoneNumber={tele} />
 
       </div>
     );

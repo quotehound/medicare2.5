@@ -64,7 +64,7 @@ class LottieAnim extends Component {
         "&first_name=" + fName +
         "&last_name=" + lName +
         "&home_phone=" + phone)
-    }, 650000)
+    }, 5000)
 
   }
 
@@ -86,19 +86,18 @@ class LottieAnim extends Component {
       <div className="bg-[#F3F5FF] ">
         <NavBarMedicare />
 
-        <section className="py-8 w-full" id='lottie'>
-          <div className="container px-4">
+        <section className="py-8 w-full mx-auto" id='lottie'>
+          <div className="container px-4 mx-auto">
             <div className="py-5 bg-blue-500   overflow-hidden rounded-lg">
               <div className="flex flex-wrap align-middle">
-                <div className="w-full md:w-full px-6 md:pl-12 lg:pr-0 mb-10 md:mb-0 text-center">
+                <div className="w-full md:w-full px-6 md:pl-12 lg:pr-0 mb-10 md:mb-0 text-center m-auto">
                   <h3 className="mb-2 lg:text-4xl sm:text-lg font-medium text-white text-center">
                     <span className="text-white" data-config-id="header-p1">{name}, </span>
                     <span data-config-id="header-p2">We are matching you with your best options!</span>
                   </h3>
-                  <p className="lg:text-xl sm:text-sm font-medium text-blue-100 text-center justify-center" data-config-id="desc">Please wait while we fetch your best plans!</p>
+                  <p className="lg:text-xl sm:text-sm font-medium text-blue-100 text-center justify-center" data-config-id="desc">Please wait while we match you with your best plans!</p>
                 </div>
-                <div className="relative w-full md:w-1/2 px-12">
-                </div>
+
               </div>
             </div>
 

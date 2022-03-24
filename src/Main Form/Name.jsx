@@ -18,7 +18,8 @@ class Name extends Component {
       last_name: "",
       progress: 10,
     };
-    this.handleClick = this.handleClick.bind(this);
+    this.setFirstName = this.setFirstName.bind(this)
+    this.setLastName = this.setLastName.bind(this);
 
   }
 
@@ -26,37 +27,38 @@ class Name extends Component {
 
     let fName = document.getElementById('firstName').value;
 
+    this.state.first_name = fName
     this.props.setFName(fName)
-
   }
 
   setLastName = (value) => {
     let lName = document.getElementById('lastName').value;
 
-    this.props.setLName(lName)
-  }
+    this.state.last_name = lName
 
+    this.props.setLName(lName)
+
+
+
+  }
   handleClick = (value) => {
 
-    value.preventDefault();
-
-    let fName = document.getElementById('firstName').value;
-    let lName = document.getElementById('lastName').value;
-
-    this.state.first_name = fName;
-    this.state.last_name = lName
+    let fName = this.state.first_name
+    let lName = this.state.last_name
 
 
     if (fName.length < 2 || lName.length < 2) {
       toast.error('Please Enter A Valid Name');
 
-      return;
+      return
     }
 
-
     toast.dismiss();
-    $(':input[type="submit"]').prop("disabled", false);
-    $(':input[type="submit"]').removeClass("disabled cursor-not-allowed");
+    console.log('came');
+
+    $('#submit').prop("disabled", false);
+
+    $('#submit').removeClass("disabled cursor-not-allowed");
 
 
     const urlSearch = window.location.search;
@@ -116,7 +118,8 @@ class Name extends Component {
     $(document).ready(function () {
       $(':input[type="submit"]').prop("disabled", true);
       $('input[type="text"]').keyup(function () {
-        if ($(this).val() != "") {
+
+        if ($(this).val != "") {
           $(':input[type="submit"]').prop("disabled", false);
           $(':input[type="submit"]').removeClass("disabled cursor-not-allowed");
         }
@@ -152,7 +155,10 @@ class Name extends Component {
                       name="first_name"
                       placeholder="First Name"
                       id="firstName"
+                      autoComplete="off"
+                      value={this.state.value}
                       onChange={this.setFirstName}
+                      required
 
                     />
 
@@ -162,13 +168,15 @@ class Name extends Component {
                       name="last_name"
                       placeholder="Last Name"
                       id="lastName"
+                      autoComplete="off"
+                      value={this.state.value}
                       onChange={this.setLastName}
+                      required
 
                     />
 
                   </div>
                   <button
-                    type="submit"
                     className="px-6 py-4 ripple-bg-blue-200 text-lg bg-blue-400 hover:shadow-lg hover:shadow-blue-300/50 text-white rounded transition duration-200 zipSubmit disabled cursor-not-allowed items-center align-middle flex flex-row text-center justify-center "
                     id="submit"
                     onClick={this.handleClick}

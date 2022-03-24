@@ -61,11 +61,6 @@ class EmailPhone extends Component {
 
     let realPhone = phone.replace(/\D/g, "");
 
-    toast.dismiss();
-    $(':input[type="submit"]').prop("disabled", false);
-    $(':input[type="submit"]').removeClass("disabled cursor-not-allowed");
-
-
 
     const urlSearch = window.location.search;
     const urlParams = new URLSearchParams(urlSearch);
@@ -197,6 +192,7 @@ class EmailPhone extends Component {
                       name="email"
                       placeholder="Email"
                       id="email"
+                      autoComplete="email"
                       onChange={this.postEmail}
 
                     />

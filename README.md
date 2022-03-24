@@ -200,7 +200,13 @@ npm i
   - quick fix for wrong pattern type on certain fields
 
 - ## v2.5.0.16 <a name='latest' id='latest'></a>
+
   - Quick fix for css issues on confirm page
+
+- ## v2.5.0.18
+  - attempted to fix bug that doesnt allow users to go to next step for these steps
+    - first last name
+    - email phone
 
 ## Known Bugs <a name = "bugs"></a>
 
