@@ -9,7 +9,7 @@ export default class NavBarMedicare extends Component {
 
 
     return (
-      <header className="bg-white">
+      <header className="bg-white" id="medicare-nav">
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Top">
           <div className="w-full py-2 flex items-center justify-between">
             <div className="flex items-center">
@@ -25,7 +25,7 @@ export default class NavBarMedicare extends Component {
 
             <div className="ml-10 space-x-4 align-center text-center">
 
-              <a className="block px-1 py-1 text-lg font-extrabold bg-blue-500 text-white lg:bg-white lg:text-blue-500 md:bg-white md:text-blue-500 rounded transition duration-200 " href="#" data-config-id="primary-action">
+              <a className="block px-1 py-1 text-lg font-extrabold bg-blue-500 text-white lg:bg-white lg:text-blue-500 md:bg-white md:text-blue-500 rounded transition duration-200 " href='tel:+18884261036' data-config-id="primary-action">
                 <div className="flex">
 
                   <div className=' font-extrabold'>
@@ -34,7 +34,9 @@ export default class NavBarMedicare extends Component {
                       <span>
 
 
-                        (123) 456-7890
+                        (888) 426-1036
+
+
 
                       </span> </h4>
                     <p className="hidden text-sm md:block">

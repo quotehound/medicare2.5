@@ -26,6 +26,33 @@ class EmailPhone extends Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
+  componentDidMount() {
+
+    const urlSearch = window.location.search;
+    const urlParams = new URLSearchParams(urlSearch);
+    const fType = urlParams.get("formType");
+
+    if (fType === 'health') {
+
+      let hideNav = document.getElementById('medicare-nav');
+      let hideBanner = document.getElementById('medicare-banner');
+
+      $(hideNav).hide()
+      $(hideBanner).hide();
+
+    }
+    if (fType === 'medicare') {
+
+      let hideNav = document.getElementById('health-nav');
+      let hideBanner = document.getElementById('health-banner');
+
+      $(hideNav).hide();
+      $(hideBanner).hide();
+    }
+
+
+  }
+
   postEmail = (values) => {
     let email = document.getElementById('email').value;
 

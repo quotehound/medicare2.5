@@ -1,8 +1,11 @@
 import React, { Component } from "react";
 import NavBarMedicare from "../medicare/NavBarMedicare";
+import NavBarHealthCare from '../health/NavBarHealthCare';
+import HealthBanner from "../health/HealthBanner";
 import MedicareBanner from "../medicare/MedicareBanner";
 import FooterMedicare from "../medicare/FooterMedicare";
 import "../forms.css";
+import $ from 'jquery'
 import { withRouter } from "react-router";
 import Fade from "react-reveal/Fade";
 import { LinkWithQuery } from '../BackButton'
@@ -17,6 +20,33 @@ class Day extends Component {
       progress: 10,
     };
     this.handleClick = this.handleClick.bind(this);
+  }
+
+  componentDidMount() {
+
+    const urlSearch = window.location.search;
+    const urlParams = new URLSearchParams(urlSearch);
+    const fType = urlParams.get("formType");
+
+    if (fType === 'health') {
+
+      let hideNav = document.getElementById('medicare-nav');
+      let hideBanner = document.getElementById('medicare-banner');
+
+      $(hideNav).hide()
+      $(hideBanner).hide();
+
+    }
+    if (fType === 'medicare') {
+
+      let hideNav = document.getElementById('health-nav');
+      let hideBanner = document.getElementById('health-banner');
+
+      $(hideNav).hide();
+      $(hideBanner).hide();
+    }
+
+
   }
 
   handleClick(event) {
@@ -104,8 +134,12 @@ class Day extends Component {
     });
     return (
       <div className="bg-[#F3F5FF] ">
-        <NavBarMedicare />
-        <MedicareBanner setProgress={this.state.progress} />
+        <NavBarMedicare id='medicare' />
+        <MedicareBanner id='medicare' />
+
+        {/* Healthcare components */}
+        <NavBarHealthCare id='health' />
+        <HealthBanner id='health' />
 
         <Fade>
           <div className="formArea flex items-center justify-center py-5 px-4 sm:px-6 lg:px-4">

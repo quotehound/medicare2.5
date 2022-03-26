@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import NavBarMedicare from "../medicare/NavBarMedicare";
 import MedicareBanner from "../medicare/MedicareBanner";
 import FooterMedicare from "../medicare/FooterMedicare";
+import NavBarHealthCare from '../health/NavBarHealthCare';
 import "../forms.css";
 import { withRouter } from "react-router";
 import Fade from "react-reveal/Fade";
@@ -23,6 +24,32 @@ class Name extends Component {
 
   }
 
+  componentDidMount() {
+
+    const urlSearch = window.location.search;
+    const urlParams = new URLSearchParams(urlSearch);
+    const fType = urlParams.get("formType");
+
+    if (fType === 'health') {
+
+      let hideNav = document.getElementById('medicare-nav');
+      let hideBanner = document.getElementById('medicare-banner');
+
+      $(hideNav).hide()
+      $(hideBanner).hide();
+
+    }
+    if (fType === 'medicare') {
+
+      let hideNav = document.getElementById('health-nav');
+      let hideBanner = document.getElementById('health-banner');
+
+      $(hideNav).hide();
+      $(hideBanner).hide();
+    }
+
+
+  }
   setFirstName = (value) => {
 
     let fName = document.getElementById('firstName').value;

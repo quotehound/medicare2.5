@@ -9,7 +9,7 @@ export default class NavBarHealth extends Component {
 
 
     return (
-      <header className="bg-white">
+      <header className="bg-white" id='health-nav'>
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Top">
           <div className="w-full py-2 flex items-center justify-between">
             <div className="flex items-center">

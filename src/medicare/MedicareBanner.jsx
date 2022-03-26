@@ -5,7 +5,7 @@ import { ProgressBar } from "react-step-progress-bar";
 export default class MedicareBanner extends Component {
   render() {
     return (
-      <section className="w-full m-w-1/2 bg-blueGray-50">
+      <section className="w-full m-w-1/2 bg-blueGray-50" id='medicare-banner'>
         <div className=" w-full">
           <div className="relative p-10 md:py-10 xl:px-10 bg-blue-600 overflow-hidden">
 

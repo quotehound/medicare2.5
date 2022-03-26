@@ -204,9 +204,14 @@ npm i
   - Quick fix for css issues on confirm page
 
 - ## v2.5.0.18
+
   - attempted to fix bug that doesnt allow users to go to next step for these steps
     - first last name
     - email phone
+
+- ## v2.5.0.19
+  - Added dynamic header + banner
+  - just need to figure out bug with input fields
 
 ## Known Bugs <a name = "bugs"></a>
 
