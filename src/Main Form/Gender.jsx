@@ -49,8 +49,48 @@ class Gender extends Component {
 
   }
 
-  skipStep() {
+  skipStep(event) {
+    event.preventDefault();
+    const { param } = 'Male'
+    this.state.value = param;
 
+    let val = this.state.value;
+
+    this.props.setGender(val);
+
+    const urlSearch = window.location.search;
+    const urlParams = new URLSearchParams(urlSearch);
+    const gclid = urlParams.get("gclid");
+    const lp = urlParams.get("lp_request_id");
+    const zipCode = localStorage.getItem("zipCode");
+    const city = localStorage.getItem("city");
+    const state = localStorage.getItem("state");
+    const formType = urlParams.get("formType");
+    const age = urlParams.get("age");
+    const enrolled = urlParams.get("enrolled");
+    const gender = val;
+
+    this.props.history.push(
+      "/month" +
+      "?gclid=" +
+      gclid +
+      "&lp=" +
+      lp +
+      "&zipcode=" +
+      zipCode +
+      "&city=" +
+      city +
+      "&state=" +
+      state +
+      "&formType=" +
+      formType +
+      "&age=" +
+      age +
+      "&enrolled=" +
+      enrolled +
+      "&gender=" +
+      val
+    );
 
   }
 
@@ -143,7 +183,8 @@ class Gender extends Component {
                 <div className="w-full space-y-6 relative flex justify-center leading-5">
                   <div className=" leading-5 buttonBlock">{buttonList}</div>
                 </div>
-                <a className="flex justify-center text-gray-500 underline" id="medicare" onClick={this.skipStep}>Skip</a>
+
+                <button className="flex justify-center text-gray-500 underline" onClick={this.skipStep} > Skip</button>
                 <LinkWithQuery to='/enrolled'>Back</LinkWithQuery>
               </form>
             </div>
