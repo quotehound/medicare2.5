@@ -198,7 +198,7 @@ npm i
 
   - quick fix for wrong pattern type on certain fields
 
-- ## v2.5.0.16 <a name='latest' id='latest'></a>
+- ## v2.5.0.16
 
   - Quick fix for css issues on confirm page
 
@@ -214,6 +214,7 @@ npm i
   - just need to figure out bug with input fields
 
 - ## v2.5.0.20
+
   - Added and fixed package.json with tpyogrpahy for tailwind
   - fixed issues with input fields
   - fixed issue with dynamic header/banner
@@ -227,6 +228,15 @@ npm i
   - added dynamic CM to thank you Med
   - added dynamic MA to thank you health
   - added dytnamic CM to thank you health
+
+- ## v2.5.0.21
+
+  - fixed issue with progress bar
+  - fixed issue with skip button
+  - finalized form
+
+- ## v2.5.1.0
+  - deployed production level code
 
 ## Known Bugs <a name = "bugs"></a>
 

@@ -20,6 +20,7 @@ class Gender extends Component {
       show: true,
     };
     this.handleClick = this.handleClick.bind(this);
+    this.skipStep = this.skipStep.bind(this);
   }
 
   componentDidMount() {
@@ -32,6 +33,9 @@ class Gender extends Component {
 
       let hideNav = document.getElementById('medicare-nav');
       let hideBanner = document.getElementById('medicare-banner');
+      let skip = document.getElementById('skip');
+
+      $(skip).hide();
 
       $(hideNav).hide()
       $(hideBanner).hide();
@@ -50,11 +54,14 @@ class Gender extends Component {
   }
 
   skipStep(event) {
-    event.preventDefault();
-    const { param } = 'Male'
-    this.state.value = param;
 
-    let val = this.state.value;
+    event.preventDefault();
+    const { param } = 'opt_out'
+    this.state.value = 'opt_out';
+
+    let val = 'opt_out';
+
+    console.log(val)
 
     this.props.setGender(val);
 
@@ -165,11 +172,11 @@ class Gender extends Component {
 
         {/* Medicare Components */}
         <NavBarMedicare id='medicare' />
-        <MedicareBanner id='medicare' />
+        <MedicareBanner id='medicare' setProgress={75} />
 
         {/* Healthcare components */}
         <NavBarHealthCare id='health' />
-        <HealthBanner id='health' />
+        <HealthBanner id='health' setProgress={75} />
 
         <Fade>
           <div className="formArea flex items-center justify-center py-5 px-4 sm:px-6 lg:px-4">
@@ -184,7 +191,7 @@ class Gender extends Component {
                   <div className=" leading-5 buttonBlock">{buttonList}</div>
                 </div>
 
-                <button className="flex justify-center text-gray-500 underline" onClick={this.skipStep} > Skip</button>
+                <button className="w-full space-y-6 relative flex justify-center leading-5 underline text-gray-400" id="skip" onClick={this.skipStep}>Skip</button>
                 <LinkWithQuery to='/enrolled'>Back</LinkWithQuery>
               </form>
             </div>

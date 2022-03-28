@@ -135,11 +135,11 @@ class Day extends Component {
     return (
       <div className="bg-[#F3F5FF] ">
         <NavBarMedicare id='medicare' />
-        <MedicareBanner id='medicare' />
+        <MedicareBanner id='medicare' setProgress={86} />
 
         {/* Healthcare components */}
         <NavBarHealthCare id='health' />
-        <HealthBanner id='health' />
+        <HealthBanner id='health' setProgress={86} />
 
         <Fade>
           <div className="formArea flex items-center justify-center py-5 px-4 sm:px-6 lg:px-4">

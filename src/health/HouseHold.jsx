@@ -14,7 +14,7 @@ class HouseHold extends Component {
     super(props);
     this.state = {
       value: "Immediatley",
-      progress: 16,
+      progress: 50,
     };
     this.handleClick = this.handleClick.bind(this);
   }
@@ -85,7 +85,7 @@ class HouseHold extends Component {
       this.state.progress = 16;
     }
     if (fType === 'health') {
-      this.state.progress = 60
+      this.state.progress = 50
     }
 
     let buttonList = buttonsTitles.map((buttonTitle, index) => {

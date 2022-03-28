@@ -31,7 +31,9 @@ class Month extends Component {
 
       let hideNav = document.getElementById('medicare-nav');
       let hideBanner = document.getElementById('medicare-banner');
+      let skip = document.getElementById('skip');
 
+      $(skip).hide();
       $(hideNav).hide()
       $(hideBanner).hide();
 
@@ -94,11 +96,12 @@ class Month extends Component {
     );
   }
 
-  skipStep() {
+  skipStep = (event) => {
 
-    let val = '1'
+    event.preventDefault();
+    let val = '02/05/1955';
 
-    this.props.setMonth(val);
+    this.props.setDOB(val);
 
     const urlSearch = window.location.search;
     const urlParams = new URLSearchParams(urlSearch);
@@ -114,7 +117,7 @@ class Month extends Component {
     const month = val;
 
     this.props.history.push(
-      "/day" +
+      "/address" +
       "?gclid=" +
       gclid +
       "&lp=" +
@@ -165,6 +168,7 @@ class Month extends Component {
       this.state.progress = 41;
     }
 
+
     let buttonList = buttonsTitles.map((buttonTitle, index) => {
       return (
         <button
@@ -182,11 +186,11 @@ class Month extends Component {
     return (
       <div className="bg-[#F3F5FF] ">
         <NavBarMedicare id='medicare' />
-        <MedicareBanner id='medicare' />
+        <MedicareBanner id='medicare' setProgress={80} />
 
         {/* Healthcare components */}
         <NavBarHealthCare id='health' />
-        <HealthBanner id='health' />
+        <HealthBanner id='health' setProgress={80} />
 
         <Fade>
           <div className="formArea flex items-center justify-center py-5 px-4 sm:px-6 lg:px-4">
@@ -207,7 +211,7 @@ class Month extends Component {
                   </div>
                 </div>
 
-                <a className="flex justify-center text-gray-500 underline" onClick={this.skipStep}>Skip</a>
+                <button className="w-full space-y-6 relative flex justify-center leading-5 underline text-gray-400" id="skip" onClick={this.skipStep}>Skip</button>
 
                 <LinkWithQuery to='/gender'>Back</LinkWithQuery>
               </form>

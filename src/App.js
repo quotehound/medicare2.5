@@ -67,6 +67,7 @@ class App extends Component {
       last_name: '',
       email_address: '',
       phone_home: '',
+      lp_request_id: '',
     }
   }
   render() {
@@ -119,6 +120,15 @@ class App extends Component {
                       form_type: formType,
                     },
                   });
+                }}
+
+                setLP={(lp) => {
+                  this.setState({
+                    postData: {
+                      ...this.state.postData,
+                      lp_request_id: lp
+                    }
+                  })
                 }}
               />
             </Route>
@@ -256,6 +266,16 @@ class App extends Component {
                       ...this.state.postData,
 
                       month: month,
+                    },
+                  });
+                }}
+
+                setDOB={(dob) => {
+                  this.setState({
+                    postData: {
+                      ...this.state.postData,
+
+                      dob: dob,
                     },
                   });
                 }}

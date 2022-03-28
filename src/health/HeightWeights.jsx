@@ -59,8 +59,7 @@ class HeightWeight extends Component {
 
 
     toast.dismiss();
-    $(':input[type="submit"]').prop("disabled", false);
-    $(':input[type="submit"]').removeClass("disabled cursor-not-allowed");
+
 
 
     const urlSearch = window.location.search;
@@ -98,20 +97,12 @@ class HeightWeight extends Component {
     const urlSearch = window.location.search;
     const urlParams = new URLSearchParams(urlSearch);
 
-    $(document).ready(function () {
-      $(':input[type="submit"]').prop("disabled", true);
-      $('input[type="text"]').keyup(function () {
-        if ($(this).val() != "") {
-          $(':input[type="submit"]').prop("disabled", false);
-          $(':input[type="submit"]').removeClass("disabled cursor-not-allowed");
-        }
-      });
-    });
+
 
     const fType = urlParams.get("formType");
 
     if (fType === "health") {
-      this.state.progress = 82;
+      this.state.progress = 35;
     }
 
     return (
@@ -140,6 +131,7 @@ class HeightWeight extends Component {
                       pattern="\d*"
                       onChange={this.setHeight}
                       maxLength={1}
+                      required
 
                     />
 
@@ -150,7 +142,7 @@ class HeightWeight extends Component {
                       name="inches"
                       placeholder="Inches"
                       pattern="\d*"
-
+                      required
                       id="inches"
                       onChange={this.setHeight}
                       maxLength={2}
@@ -166,7 +158,7 @@ class HeightWeight extends Component {
                     id="weight"
                     onChange={this.setWeight}
                     pattern="\d*"
-
+                    required
                     maxLength={3}
 
                   />

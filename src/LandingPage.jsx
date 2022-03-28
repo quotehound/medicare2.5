@@ -97,10 +97,12 @@ class LandingPage extends Component {
     const state = localStorage.getItem('state');
     const formType = localStorage.getItem('formType');
 
+    localStorage.setItem('lp', lp)
     this.props.setZipCode(zipCode);
     this.props.setCity(city);
     this.props.setUState(state);
     this.props.setFormType(formType);
+    this.props.setLP(lp)
 
     this.props.history.push('/age' + '?gclid=' + gclid + '&lp=' + lp + '&zipcode=' + zipCode + '&city=' + city + '&state=' + state + '&formType=' + formType)
 
