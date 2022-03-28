@@ -124,7 +124,7 @@ class LandingPage extends Component {
         />
         <NavBarMedicare />
         <Fade>
-          <div className=" header">
+          <div className=" header bg-blend-overlay	 ">
             <div className="mx-auto max-w-7xl content-center" >
               <div className="lg:grid lg:grid-cols-12 lg:gap-8 content-center">
                 <div className="px-4 sm:px-6 sm:text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left lg:flex lg:items-center">

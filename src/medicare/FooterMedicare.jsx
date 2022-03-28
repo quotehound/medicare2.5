@@ -5,10 +5,10 @@ export default class FooterMedicare extends Component {
   render() {
     const navigation = {
       main: [
-        { name: 'Do Not Sell', href: '#' },
-        { name: 'Privacy Policy', href: '#' },
-        { name: 'Terms & Conditions', href: '#' },
-        { name: 'CCPA', href: '#' }
+        { name: 'Do Not Sell', href: 'https://www.quotehound.com/dont-sell-my-info' },
+        { name: 'Privacy Policy', href: '/privacy-policy' },
+        { name: 'Terms & Conditions', href: '/terms-conditions' },
+        { name: 'CCPA', href: '/ccpa' }
       ],
 
     }
@@ -22,7 +22,7 @@ export default class FooterMedicare extends Component {
 
             {navigation.main.map((item) => (
               <div key={item.name} className="px-5 py-2">
-                <a href={item.href} className="text-base text-gray-500 hover:text-gray-900 hover:underline hover:decoration-wavy hover:decoration-blue-300">
+                <a href={item.href} target='_blank' className="text-base text-gray-500 hover:text-gray-900 hover:underline hover:decoration-wavy hover:decoration-blue-300">
                   {item.name}
                 </a>
 

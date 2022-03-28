@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import NavBarMedicare from "../medicare/NavBarMedicare";
+import NavBarHealthCare from '../health/NavBarHealthCare';
+import HealthBanner from "../health/HealthBanner";
 import MedicareBanner from "../medicare/MedicareBanner";
 import FooterMedicare from "../medicare/FooterMedicare";
 import "../forms.css";
@@ -74,7 +76,6 @@ class EmailPhone extends Component {
 
   handleClick = (value) => {
 
-    value.preventDefault();
 
 
     let email = document.getElementById('email').value;
@@ -105,11 +106,11 @@ class EmailPhone extends Component {
     const address = urlParams.get('address')
     const fName = urlParams.get('first_name');
     const lName = urlParams.get('lName');
+    const fType = urlParams.get('formType');
 
     this.setState({
       loading: true
     }, this.postMedicare(this.props.postData))
-
 
 
 
@@ -173,21 +174,12 @@ class EmailPhone extends Component {
   render() {
 
 
-    const { response, loading } = this.state;
 
     const urlSearch = window.location.search;
     const urlParams = new URLSearchParams(urlSearch);
     const fName = urlParams.get('first_name');
 
-    $(document).ready(function () {
-      $(':input[type="submit"]').prop("disabled", true);
-      $('input[type="email"]').keyup(function () {
-        if ($(this).val() != "") {
-          $(':input[type="submit"]').prop("disabled", false);
-          $(':input[type="submit"]').removeClass("disabled cursor-not-allowed");
-        }
-      });
-    });
+
 
     const fType = urlParams.get("formType");
 
@@ -198,8 +190,12 @@ class EmailPhone extends Component {
     return (
       <div className="bg-[#F3F5FF] ">
 
-        <NavBarMedicare />
-        <MedicareBanner setProgress={this.state.progress} />
+        <NavBarMedicare id='medicare' />
+        <MedicareBanner id='medicare' />
+
+        {/* Healthcare components */}
+        <NavBarHealthCare id='health' />
+        <HealthBanner id='health' />
         <ToastContainer limit={1} position="top-center" theme="colored" />
         <Fade>
           <div className="formArea flex items-center justify-center py-5 px-4 sm:px-6 lg:px-4">
@@ -249,25 +245,12 @@ class EmailPhone extends Component {
 
                   <button
                     type="submit"
-                    className="px-6 py-4 ripple-bg-blue-200 text-lg bg-blue-400 hover:shadow-lg hover:shadow-blue-300/50 text-white rounded transition duration-200 zipSubmit disabled cursor-not-allowed items-center align-middle flex flex-row text-center justify-center "
+                    className="px-6 py-4 ripple-bg-blue-200 text-lg bg-blue-400 hover:shadow-lg hover:shadow-blue-300/50 text-white rounded transition duration-200 zipSubmit items-center align-middle flex flex-row text-center justify-center "
                     id="submit"
                     onClick={this.handleClick}
                   >
                     Get Your No Obligation Quote!
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-6 w-auto pl-5"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth={2}
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M13 7l5 5m0 0l-5 5m5-5H6"
-                      />
-                    </svg>
+
                   </button>
                 </div>
 

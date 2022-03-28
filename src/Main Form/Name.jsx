@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import NavBarMedicare from "../medicare/NavBarMedicare";
+import NavBarHealthCare from '../health/NavBarHealthCare';
+import HealthBanner from "../health/HealthBanner";
 import MedicareBanner from "../medicare/MedicareBanner";
 import FooterMedicare from "../medicare/FooterMedicare";
-import NavBarHealthCare from '../health/NavBarHealthCare';
 import "../forms.css";
 import { withRouter } from "react-router";
 import Fade from "react-reveal/Fade";
@@ -142,16 +143,6 @@ class Name extends Component {
     const urlSearch = window.location.search;
     const urlParams = new URLSearchParams(urlSearch);
 
-    $(document).ready(function () {
-      $(':input[type="submit"]').prop("disabled", true);
-      $('input[type="text"]').keyup(function () {
-
-        if ($(this).val != "") {
-          $(':input[type="submit"]').prop("disabled", false);
-          $(':input[type="submit"]').removeClass("disabled cursor-not-allowed");
-        }
-      });
-    });
 
     const fType = urlParams.get("formType");
 
@@ -162,8 +153,12 @@ class Name extends Component {
     return (
       <div className="bg-[#F3F5FF] ">
 
-        <NavBarMedicare />
-        <MedicareBanner setProgress={this.state.progress} />
+        <NavBarMedicare id='medicare' />
+        <MedicareBanner id='medicare' />
+
+        {/* Healthcare components */}
+        <NavBarHealthCare id='health' />
+        <HealthBanner id='health' />
         <ToastContainer limit={1} position="top-center" theme="colored" />
         <Fade>
           <div className="formArea flex items-center justify-center py-5 px-4 sm:px-6 lg:px-4">
@@ -204,7 +199,7 @@ class Name extends Component {
 
                   </div>
                   <button
-                    className="px-6 py-4 ripple-bg-blue-200 text-lg bg-blue-400 hover:shadow-lg hover:shadow-blue-300/50 text-white rounded transition duration-200 zipSubmit disabled cursor-not-allowed items-center align-middle flex flex-row text-center justify-center "
+                    className="px-6 py-4 ripple-bg-blue-200 text-lg bg-blue-400 hover:shadow-lg hover:shadow-blue-300/50 text-white rounded transition duration-200 zipSubmit items-center align-middle flex flex-row text-center justify-center "
                     id="submit"
                     onClick={this.handleClick}
                   >

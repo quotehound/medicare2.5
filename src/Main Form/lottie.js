@@ -35,35 +35,72 @@ class LottieAnim extends Component {
       const lName = urlParams.get('lName');
       const phone = urlParams.get('home_phone')
 
+      if (formType === 'medicare') {
 
-      window.location.href = ('/thank-you' +
-        "?gclid=" +
-        gclid +
-        "&lp=" +
-        lp +
-        "&zipcode=" +
-        zipCode +
-        "&city=" +
-        city +
-        "&state=" +
-        state +
-        "&formType=" +
-        formType +
-        "&age=" +
-        age +
-        "&enrolled=" +
-        enrolled +
-        "&month=" +
-        month +
-        "&day=" +
-        day +
-        "&year=" +
-        year +
-        "&address=" +
-        address +
-        "&first_name=" + fName +
-        "&last_name=" + lName +
-        "&home_phone=" + phone)
+        window.location.href = ('/thank-you-medicare' +
+          "?gclid=" +
+          gclid +
+          "&lp=" +
+          lp +
+          "&zipcode=" +
+          zipCode +
+          "&city=" +
+          city +
+          "&state=" +
+          state +
+          "&formType=" +
+          formType +
+          "&age=" +
+          age +
+          "&enrolled=" +
+          enrolled +
+          "&month=" +
+          month +
+          "&day=" +
+          day +
+          "&year=" +
+          year +
+          "&address=" +
+          address +
+          "&first_name=" + fName +
+          "&last_name=" + lName +
+          "&home_phone=" + phone)
+
+      }
+
+      if (formType === 'health') {
+        window.location.href = ('/thank-you-health' +
+          "?gclid=" +
+          gclid +
+          "&lp=" +
+          lp +
+          "&zipcode=" +
+          zipCode +
+          "&city=" +
+          city +
+          "&state=" +
+          state +
+          "&formType=" +
+          formType +
+          "&age=" +
+          age +
+          "&enrolled=" +
+          enrolled +
+          "&month=" +
+          month +
+          "&day=" +
+          day +
+          "&year=" +
+          year +
+          "&address=" +
+          address +
+          "&first_name=" + fName +
+          "&last_name=" + lName +
+          "&home_phone=" + phone)
+      }
+
+
+
     }, 5000)
 
   }
@@ -75,10 +112,9 @@ class LottieAnim extends Component {
     const urlParams = new URLSearchParams(urlSearch);
     const fType = urlParams.get('formType');
     const name = urlParams.get('first_name');
+    const tele = urlParams.get('home_phone')
 
-    if (fType === 'medicare') {
 
-    }
 
 
 
@@ -95,7 +131,7 @@ class LottieAnim extends Component {
                     <span className="text-white" data-config-id="header-p1">{name}, </span>
                     <span data-config-id="header-p2">We are matching you with your best options!</span>
                   </h3>
-                  <p className="lg:text-xl sm:text-sm font-medium text-blue-100 text-center justify-center" data-config-id="desc">Please wait while we match you with your best plans!</p>
+                  <p className="lg:text-xl sm:text-sm font-medium text-blue-100 text-center justify-center" data-config-id="desc">Please wait while we match you with your best plans for {fType}!</p>
                 </div>
 
               </div>

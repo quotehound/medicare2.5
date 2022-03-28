@@ -16,6 +16,11 @@ import Name from './Main Form/Name';
 import EmailPhone from './Main Form/EmailPhone';
 import LottieAnim from './Main Form/lottie';
 import ThankYou from './Main Form/ThankYou';
+import ThankYouMedicare from './medicare/ThankYouMedicare'
+import ThankYouHealth from './health/ThankYouHealth';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsConditions from './pages/TermsConditions';
+import CCPA from './pages/CCPA';
 
 //* Import Health Care Route
 import CoverageTime from './health/CoverageTime';
@@ -364,9 +369,16 @@ class App extends Component {
 
             <Route path='/confirm' component={LottieAnim} />
 
+            <Route path='/thank-you-medicare' component={ThankYouMedicare} />
+            <Route path='/thank-you-health' component={ThankYouHealth} />
+
             <Route path='/thank-you'>
               <ThankYou />
             </Route>
+
+            <Route path='/privacy-policy' component={PrivacyPolicy} />
+            <Route path='/terms-conditions' component={TermsConditions} />
+            <Route path='/ccpa' component={CCPA} />
           </Switch>
 
         </div>

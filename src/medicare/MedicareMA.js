@@ -11,7 +11,7 @@ class MedicareMA extends Component {
     const zip = localStorage.getItem('zipCode');
 
 
-    renderScript.innerHTML = "window.MediaAlphaExchange = {'data': { 'zip': localStorage.getItem('zipCode')}, 'placement_id': 'YiPFAJc_r0i9fsZr0uP7vvicsinK3Q','sub_1': 'test sub id', 'type': 'ad_unit', 'version': 17}; window.MediaAlphaExchange__load('mediaalpha_placeholder'); ";
+    renderScript.innerHTML = "window.MediaAlphaExchange = {'data': { 'zip': localStorage.getItem('zipCode')}, 'placement_id': 'vLKzTdoPTUxy-P7jysaC7AwW18kMVA','sub_1': 'test sub id', 'type': 'ad_unit', 'version': 17}; window.MediaAlphaExchange__load('mediaalpha_placeholder'); ";
 
     document.body.appendChild(renderScript);
 

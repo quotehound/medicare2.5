@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import NavBarMedicare from "../medicare/NavBarMedicare";
+import NavBarHealthCare from '../health/NavBarHealthCare';
+import HealthBanner from "../health/HealthBanner";
 import MedicareBanner from "../medicare/MedicareBanner";
 import FooterMedicare from "../medicare/FooterMedicare";
 import "../forms.css";
@@ -146,8 +148,12 @@ class Year extends Component {
 
     return (
       <div className="bg-[#F3F5FF] ">
-        <NavBarMedicare />
-        <MedicareBanner setProgress={this.state.progress} />
+        <NavBarMedicare id='medicare' />
+        <MedicareBanner id='medicare' />
+
+        {/* Healthcare components */}
+        <NavBarHealthCare id='health' />
+        <HealthBanner id='health' />
         <ToastContainer limit={1} position="top-center" theme="colored" />
         <Fade>
           <div className="formArea flex items-center justify-center py-5 px-4 sm:px-6 lg:px-4">

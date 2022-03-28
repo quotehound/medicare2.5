@@ -3,7 +3,6 @@
  <img src="https://assets.website-files.com/5dfd95f78d0e1ee3b32e0f58/5dfd965f8d0e1e23372e0fad_Quotehound%2520Primary%2520Logo%2520-%2520transparent%2520rasterized%2520(1)-p-2600.png" alt="Project logo"></a>
 </p>
 <h3 align="center">Medicare Form</h3>
----
 
 <p align="center"> Details About The Form & Code Base.
     <br> 
@@ -210,8 +209,24 @@ npm i
     - email phone
 
 - ## v2.5.0.19
+
   - Added dynamic header + banner
   - just need to figure out bug with input fields
+
+- ## v2.5.0.20
+  - Added and fixed package.json with tpyogrpahy for tailwind
+  - fixed issues with input fields
+  - fixed issue with dynamic header/banner
+  - added new photo
+  - fixed lottie animation
+  - added two thank you pages
+  - added CCPA
+  - added Privacy Policy
+  - added Terms & Condition
+  - added dynamic MA to thank you Med
+  - added dynamic CM to thank you Med
+  - added dynamic MA to thank you health
+  - added dytnamic CM to thank you health
 
 ## Known Bugs <a name = "bugs"></a>
 
