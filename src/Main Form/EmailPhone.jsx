@@ -87,6 +87,11 @@ class EmailPhone extends Component {
       return;
     }
 
+    if (email.length < 5) {
+      toast.error('Please Enter A Valid Email!')
+      return
+    }
+
     let realPhone = phone.replace(/\D/g, "");
 
 
