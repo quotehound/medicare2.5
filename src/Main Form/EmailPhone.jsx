@@ -217,6 +217,7 @@ class EmailPhone extends Component {
                       id="email"
                       autoComplete="email"
                       onChange={this.postEmail}
+                      required
 
                     />
 

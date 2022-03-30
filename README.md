@@ -236,7 +236,12 @@ npm i
   - finalized form
 
 - ## v2.5.1.0
+
   - deployed production level code
+
+- ## v2.5.1.0-1
+  - fixed buged with allowance on email with null value
+  - fixed landing page edits
 
 ## Known Bugs <a name = "bugs"></a>
 
