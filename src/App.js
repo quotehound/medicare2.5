@@ -28,6 +28,8 @@ import Income from './health/Income';
 import HeightWeight from './health/HeightWeights';
 import HouseHold from './health/HouseHold';
 import PreExist from './health/PreExist';
+
+import Click2Call from './pages/CallNow';
 class App extends Component {
 
   //* set states for post data 
@@ -399,6 +401,7 @@ class App extends Component {
             <Route path='/privacy-policy' component={PrivacyPolicy} />
             <Route path='/terms-conditions' component={TermsConditions} />
             <Route path='/ccpa' component={CCPA} />
+            <Route path='/call-now' component={Click2Call} />
           </Switch>
 
         </div>
