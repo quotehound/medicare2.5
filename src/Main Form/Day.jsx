@@ -205,7 +205,7 @@ class Day extends Component {
 
                   </div>
                 </div>
-                <button className="w-full space-y-6 relative flex justify-center leading-5 underline text-gray-400" id="skip" onClick={this.skipStep}>Skip</button>
+                {/* <button className="w-full space-y-6 relative flex justify-center leading-5 underline text-gray-400" id="skip" onClick={this.skipStep}>Skip</button> */}
                 <LinkWithQuery to='/month'>Back</LinkWithQuery>
               </form>
             </div>

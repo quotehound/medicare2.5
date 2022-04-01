@@ -246,7 +246,7 @@ class Address extends Component {
                     </svg>
                   </button>
                 </div>
-                <button className="w-full space-y-6 relative flex justify-center leading-5 underline text-gray-400" id="skip" onClick={this.skipStep}>Skip</button>
+                {/* <button className="w-full space-y-6 relative flex justify-center leading-5 underline text-gray-400" id="skip" onClick={this.skipStep}>Skip</button> */}
                 <LinkWithQuery to="/year">Back</LinkWithQuery>
               </form>
             </div>
