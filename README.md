@@ -240,8 +240,13 @@ npm i
   - deployed production level code
 
 - ## v2.5.1.0-1
+
   - fixed buged with allowance on email with null value
   - fixed landing page edits
+
+- ## v2.5.1.0-2
+  - added click2call page
+  - added welcome back page
 
 ## Known Bugs <a name = "bugs"></a>
 

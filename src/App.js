@@ -30,6 +30,7 @@ import HouseHold from './health/HouseHold';
 import PreExist from './health/PreExist';
 
 import Click2Call from './pages/CallNow';
+import WelcomeBack from './pages/WelcomeBack';
 class App extends Component {
 
   //* set states for post data 
@@ -402,6 +403,7 @@ class App extends Component {
             <Route path='/terms-conditions' component={TermsConditions} />
             <Route path='/ccpa' component={CCPA} />
             <Route path='/call-now' component={Click2Call} />
+            <Route path='/welcome-back' component={WelcomeBack} />
           </Switch>
 
         </div>
