@@ -245,8 +245,13 @@ npm i
   - fixed landing page edits
 
 - ## v2.5.1.0-2
+
   - added click2call page
   - added welcome back page
+
+- ## v2.5.1.0-3
+  - added skip buttons to remaining DOB questions
+  - added skip to address
 
 ## Known Bugs <a name = "bugs"></a>
 

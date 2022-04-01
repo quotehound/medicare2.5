@@ -126,6 +126,61 @@ class Year extends Component {
     );
   };
 
+
+  skipStep = (event) => {
+
+    event.preventDefault();
+    let val = '1955';
+
+    this.props.setDay(val);
+
+    const urlSearch = window.location.search;
+    const urlParams = new URLSearchParams(urlSearch);
+    const gclid = urlParams.get("gclid");
+    const lp = urlParams.get("lp_request_id");
+    const zipCode = localStorage.getItem("zipCode");
+    const city = localStorage.getItem("city");
+    const state = localStorage.getItem("state");
+    const formType = localStorage.getItem("formType");
+    const age = urlParams.get("age");
+    const enrolled = urlParams.get("enrolled");
+    const month = urlParams.get("month")
+    const day = urlParams.get("day")
+
+    let dob = month + '/' + day + '/' + val
+
+    this.props.setDOB(dob);
+
+
+    this.props.history.push(
+      "/address" +
+      "?gclid=" +
+      gclid +
+      "&lp=" +
+      lp +
+      "&zipcode=" +
+      zipCode +
+      "&city=" +
+      city +
+      "&state=" +
+      state +
+      "&formType=" +
+      formType +
+      "&age=" +
+      age +
+      "&enrolled=" +
+      enrolled +
+      "&month=" +
+      month +
+      "&day=" +
+      day +
+      "&year=" +
+      val
+
+    );
+  }
+
+
   render() {
     const urlSearch = window.location.search;
     const urlParams = new URLSearchParams(urlSearch);
@@ -199,7 +254,7 @@ class Year extends Component {
                     </svg>
                   </button>
                 </div>
-
+                <button className="w-full space-y-6 relative flex justify-center leading-5 underline text-gray-400" id="skip" onClick={this.skipStep}>Skip</button>
                 <LinkWithQuery to="/day">Back</LinkWithQuery>
               </form>
             </div>

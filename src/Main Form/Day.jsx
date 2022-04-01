@@ -97,6 +97,53 @@ class Day extends Component {
     );
   }
 
+  skipStep = (event) => {
+
+    event.preventDefault();
+    let val = '05';
+
+    this.props.setDay(val);
+
+    const urlSearch = window.location.search;
+    const urlParams = new URLSearchParams(urlSearch);
+    const gclid = urlParams.get("gclid");
+    const lp = urlParams.get("lp_request_id");
+    const zipCode = localStorage.getItem("zipCode");
+    const city = localStorage.getItem("city");
+    const state = localStorage.getItem("state");
+    const formType = localStorage.getItem("formType");
+    const age = urlParams.get("age");
+    const enrolled = urlParams.get("enrolled");
+    const gender = urlParams.get("gender");
+    const month = urlParams.get("month")
+
+
+    this.props.history.push(
+      "/year" +
+      "?gclid=" +
+      gclid +
+      "&lp=" +
+      lp +
+      "&zipcode=" +
+      zipCode +
+      "&city=" +
+      city +
+      "&state=" +
+      state +
+      "&formType=" +
+      formType +
+      "&age=" +
+      age +
+      "&enrolled=" +
+      enrolled +
+      "&gender=" +
+      gender
+      + "&month=" + month
+      + "&day=" + val
+
+    );
+  }
+
   render() {
 
 
@@ -158,7 +205,7 @@ class Day extends Component {
 
                   </div>
                 </div>
-
+                <button className="w-full space-y-6 relative flex justify-center leading-5 underline text-gray-400" id="skip" onClick={this.skipStep}>Skip</button>
                 <LinkWithQuery to='/month'>Back</LinkWithQuery>
               </form>
             </div>
