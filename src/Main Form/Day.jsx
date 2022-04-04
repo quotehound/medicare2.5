@@ -70,6 +70,7 @@ class Day extends Component {
     const enrolled = urlParams.get("enrolled");
     const gender = urlParams.get("gender");
     const month = urlParams.get("month")
+    const dobskip = urlParams.get('dobskip')
 
 
     this.props.history.push(
@@ -93,7 +94,8 @@ class Day extends Component {
       "&gender=" +
       gender
       + "&month=" + month
-      + "&day=" + val
+      + "&day=" + val +
+      "&dobskip=" + dobskip
     );
   }
 
@@ -116,6 +118,7 @@ class Day extends Component {
     const enrolled = urlParams.get("enrolled");
     const gender = urlParams.get("gender");
     const month = urlParams.get("month")
+    const dobskip = 'true';
 
 
     this.props.history.push(
@@ -139,7 +142,8 @@ class Day extends Component {
       "&gender=" +
       gender
       + "&month=" + month
-      + "&day=" + val
+      + "&day=" + val +
+      "&dobskip=" + dobskip
 
     );
   }

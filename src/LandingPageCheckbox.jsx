@@ -8,12 +8,23 @@ const Formtype = [
 
 ]
 
+
+
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
+function listenClick() {
+
+  console.log('click')
+}
+
+
 export default function LandingPageCheckBox() {
+
+
   const [selectedQuote, setSelectedQuote] = useState(Formtype[0])
+
 
   return (
     <RadioGroup value={selectedQuote} onChange={setSelectedQuote}>
@@ -24,6 +35,7 @@ export default function LandingPageCheckBox() {
           <RadioGroup.Option
             key={Formtype.id}
             id='radio'
+            onClick={listenClick()}
             value={Formtype}
             className={({ checked, active }) =>
               classNames(
@@ -67,3 +79,4 @@ export default function LandingPageCheckBox() {
     </RadioGroup>
   )
 }
+

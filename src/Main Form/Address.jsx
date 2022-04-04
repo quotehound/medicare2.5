@@ -33,7 +33,9 @@ class Address extends Component {
 
       let hideNav = document.getElementById('medicare-nav');
       let hideBanner = document.getElementById('medicare-banner');
+      let medicareBack = document.getElementById('medicare');
 
+      $(medicareBack).hide();
       $(hideNav).hide()
       $(hideBanner).hide();
 
@@ -42,7 +44,9 @@ class Address extends Component {
 
       let hideNav = document.getElementById('health-nav');
       let hideBanner = document.getElementById('health-banner');
+      let healthBack = document.getElementById('health');
 
+      $(healthBack).hide();
       $(hideNav).hide();
       $(hideBanner).hide();
     }
@@ -246,8 +250,9 @@ class Address extends Component {
                     </svg>
                   </button>
                 </div>
-                {/* <button className="w-full space-y-6 relative flex justify-center leading-5 underline text-gray-400" id="skip" onClick={this.skipStep}>Skip</button> */}
-                <LinkWithQuery to="/year">Back</LinkWithQuery>
+                <a className="w-full space-y-6 relative flex justify-center leading-5 underline text-gray-400" id="skip" onClick={this.skipStep}>Skip</a>
+                <LinkWithQuery to="/year" id='health'>Back</LinkWithQuery>
+                <LinkWithQuery to="/month" id='medicare'>Back</LinkWithQuery>
               </form>
             </div>
           </div >

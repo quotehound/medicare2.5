@@ -83,6 +83,7 @@ class LandingPage extends Component {
     this.componentDidCatch(value)
   }
 
+
   nextStep() {
 
 

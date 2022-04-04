@@ -71,6 +71,7 @@ class Month extends Component {
     const age = urlParams.get("age");
     const enrolled = urlParams.get("enrolled");
     const gender = urlParams.get('gender');
+    const dobskip = 'false'
     const month = val;
 
     this.props.history.push(
@@ -92,7 +93,8 @@ class Month extends Component {
       "&enrolled=" +
       enrolled +
       "&gender=" + gender
-      + "&month=" + val
+      + "&month=" + val +
+      '&dobskip=' + dobskip
     );
   }
 
@@ -114,6 +116,7 @@ class Month extends Component {
     const age = urlParams.get("age");
     const enrolled = urlParams.get("enrolled");
     const gender = urlParams.get('gender');
+    const dobskip = 'true'
     const month = val;
 
     this.props.history.push(
@@ -135,7 +138,8 @@ class Month extends Component {
       "&enrolled=" +
       enrolled +
       "&gender=" + gender
-      + "&month=" + val
+      + "&month=" + val +
+      "&dobskip=" + dobskip
     );
 
   }

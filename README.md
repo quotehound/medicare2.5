@@ -250,8 +250,13 @@ npm i
   - added welcome back page
 
 - ## v2.5.1.0-3
+
   - added skip buttons to remaining DOB questions
   - added skip to address
+
+- ## v2.5.1.0-4
+  - fixed skip issue on DOB
+  - fixed issue with dead click
 
 ## Known Bugs <a name = "bugs"></a>
 

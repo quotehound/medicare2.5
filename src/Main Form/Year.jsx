@@ -92,6 +92,7 @@ class Year extends Component {
     const enrolled = urlParams.get("enrolled");
     const month = urlParams.get("month")
     const day = urlParams.get("day")
+    const dobskip = urlParams.get('dobskip')
 
     let dob = month + '/' + day + '/' + val
 
@@ -121,7 +122,8 @@ class Year extends Component {
       "&day=" +
       day +
       "&year=" +
-      val
+      val +
+      "&dobskip=" + dobskip
 
     );
   };
@@ -146,6 +148,7 @@ class Year extends Component {
     const enrolled = urlParams.get("enrolled");
     const month = urlParams.get("month")
     const day = urlParams.get("day")
+    const dobskip = 'true'
 
     let dob = month + '/' + day + '/' + val
 
@@ -175,7 +178,8 @@ class Year extends Component {
       "&day=" +
       day +
       "&year=" +
-      val
+      val +
+      "&dobskip=" + dobskip
 
     );
   }
