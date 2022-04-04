@@ -40,6 +40,9 @@ class App extends Component {
     postData: {
       lp_campaign_id: '6216b43dd07de',
       lp_campaign_key: '2Bd63GNZDYpV4HnxvTmj',
+      lp_s1: '',
+      lp_s2: '',
+      lp_s3: '',
       lp_s4: '13',
       landing_page: 'usmedicarequotes.com',
       TCPA_Consent: 'Yes',

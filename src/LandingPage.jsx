@@ -177,7 +177,7 @@ class LandingPage extends Component {
                               />
                               <p className='text-sm pt-2 text-gray-400' id='city'>Savings available in <span className='text-blue-300 font-bold'>{city}, {state}</span></p>
                             </div>
-                            <LandingPageCheckBox />
+                            {/* <LandingPageCheckBox /> */}
                             <div>
                               <button
                                 type="submit"

@@ -11,7 +11,10 @@ class MedicareMA extends Component {
     const zip = localStorage.getItem('zipCode');
 
 
-    renderScript.innerHTML = "window.MediaAlphaExchange = {'data': { 'zip': localStorage.getItem('zipCode')}, 'placement_id': 'vLKzTdoPTUxy-P7jysaC7AwW18kMVA','sub_1': 'test sub id', 'type': 'ad_unit', 'version': 17}; window.MediaAlphaExchange__load('mediaalpha_placeholder'); ";
+    // TODO: add lp1-4, landing page, tcpa language, privacy policy url
+    //   
+
+    renderScript.innerHTML = "window.MediaAlphaExchange = {'data': { 'zip': localStorage.getItem('zipCode')}, 'placement_id': 'vLKzTdoPTUxy-P7jysaC7AwW18kMVA','sub_1': '', 'type': 'ad_unit', 'version': 17, }; window.MediaAlphaExchange__load('mediaalpha_placeholder'); ";
 
     document.body.appendChild(renderScript);
 
