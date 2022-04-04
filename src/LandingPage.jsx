@@ -40,6 +40,7 @@ class LandingPage extends Component {
   componentDidCatch(values) {
 
     const zipVal = document.getElementById('zipCode').value;
+    const entranceUrl = document.referrer()
 
     axios.get('https://ziptasticapi.com/' + zipVal)
       .then(res => {
