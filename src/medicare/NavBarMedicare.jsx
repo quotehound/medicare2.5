@@ -34,13 +34,13 @@ export default class NavBarMedicare extends Component {
                       <span>
 
 
-                        (888) 426-1036
+                        (888) 426-1036 <span className='hidden md:inline-flex'>| TTY: 771 </span>
 
 
 
                       </span> </h4>
                     <p className="hidden text-sm md:block">
-                      TTY: 711 | Monday - Friday 6am - 6pm
+                      Monday - Sunday 6am - 6pm PTD
                     </p>
                   </div>
                 </div></a>

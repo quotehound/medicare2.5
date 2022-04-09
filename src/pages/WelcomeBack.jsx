@@ -1,13 +1,12 @@
 import React, { Component } from "react";
-import NavBarMedicare from "../medicare/NavBarMedicare";
-import $ from 'jquery'
-import FooterMedicare from "../medicare/FooterMedicare";
+
 import "../forms.css";
 import { withRouter } from "react-router";
 import Fade from 'react-reveal/Fade';
 import WelcomeBackNav from "../WelcomeBackNav";
 import MedicareCM from "../medicare/MedicareCM";
 import MedicareMA from "../medicare/MedicareMA";
+import CallCTA from './CallCTA'
 
 
 
@@ -51,7 +50,12 @@ class WelcomeBack extends Component {
                 </h2>
               </div>
 
+              <CallCTA />
+
+
               <div className="w-full space-y-6 relative flex justify-center leading-5">
+
+
                 <MedicareMA />
               </div>
 

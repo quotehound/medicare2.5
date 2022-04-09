@@ -10,7 +10,8 @@ import Fade from "react-reveal/Fade";
 import { LinkWithQuery } from "../BackButton";
 import $ from "jquery";
 import { toast, ToastContainer } from "react-toastify";
-
+import BottomPhoneHealth from "../health/BottomPhoneHealth";
+import BottomPhoneMedicare from "../medicare/BottomPhone";
 
 class Address extends Component {
   constructor(props) {
@@ -34,7 +35,12 @@ class Address extends Component {
       let hideNav = document.getElementById('medicare-nav');
       let hideBanner = document.getElementById('medicare-banner');
       let medicareBack = document.getElementById('medicare');
+      let ctaMedicare = document.getElementById('medicare-cta');
+      let skip = document.getElementById('skip');
 
+      $(skip).hide();
+
+      $(ctaMedicare).hide();
       $(medicareBack).hide();
       $(hideNav).hide()
       $(hideBanner).hide();
@@ -45,7 +51,10 @@ class Address extends Component {
       let hideNav = document.getElementById('health-nav');
       let hideBanner = document.getElementById('health-banner');
       let healthBack = document.getElementById('health');
+      let ctaHealth = document.getElementById('health-cta');
 
+
+      $(ctaHealth).hide();
       $(healthBack).hide();
       $(hideNav).hide();
       $(hideBanner).hide();
@@ -256,6 +265,8 @@ class Address extends Component {
               </form>
             </div>
           </div >
+          <BottomPhoneHealth />
+          <BottomPhoneMedicare />
         </Fade >
 
         <FooterMedicare />

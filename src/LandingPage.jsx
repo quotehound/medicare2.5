@@ -133,7 +133,7 @@ class LandingPage extends Component {
                 <div className="px-4 sm:px-6 sm:text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left lg:flex lg:items-center">
                   <div>
                     <a
-                      href="#"
+                      href='tel:+18884261036'
                       className="inline-flex items-center text-white bg-blue-500 rounded-full p-1 pr-2 sm:text-base lg:text-sm xl:text-base hover:text-gray-200"
                     >
                       <span className="px-3 py-0.5 text-white text-xs font-semibold leading-5 uppercase tracking-wide bg-blue-300 rounded-full">
@@ -212,7 +212,7 @@ class LandingPage extends Component {
                     <div className="absolute top-0 left-1/2 transform -translate-y-1/2 -translate-x-1/2 inline-flex items-center justify-center h-16 w-16 bg-white rounded-full">
                       <div className="inline-flex items-center justify-center w-12 h-12 bg-blue-500 rounded-full text-xl font-semibold text-white" data-config-id="auto-txt-4-3">1</div>
                     </div>
-                    <h3 className="md:w-64 mb-4 text-lg md:text-xl font-bold" data-config-id="auto-txt-5-3">Fill Out Our Form</h3>
+                    <h3 className="mb-4 text-lg md:text-xl text-center  font-bold" data-config-id="auto-txt-5-3">Fill Out Our Form</h3>
                     <p className="text-coolGray-500 font-medium" data-config-id="auto-txt-6-3">Our Form is simple and easy! Finish it in 2 minutes.</p>
                   </div>
                 </div>
@@ -221,7 +221,7 @@ class LandingPage extends Component {
                     <div className="absolute top-0 left-1/2 transform -translate-y-1/2 -translate-x-1/2 inline-flex items-center justify-center h-16 w-16 bg-white rounded-full">
                       <div className="inline-flex items-center justify-center w-12 h-12 bg-blue-500 rounded-full text-xl font-semibold text-white" data-config-id="auto-txt-7-3">2</div>
                     </div>
-                    <h3 className="md:w-64 mb-4 text-lg md:text-xl font-bold" data-config-id="auto-txt-8-3">Get Connected</h3>
+                    <h3 className="text-center mb-4 text-lg md:text-xl font-bold" data-config-id="auto-txt-8-3">Get Connected</h3>
                     <p className="text-coolGray-500 font-medium" data-config-id="auto-txt-9-3">Connect to get real rates across our partners matched for you.</p>
                   </div>
                 </div>
@@ -230,7 +230,7 @@ class LandingPage extends Component {
                     <div className="absolute top-0 left-1/2 transform -translate-y-1/2 -translate-x-1/2 inline-flex items-center justify-center h-16 w-16 bg-white rounded-full">
                       <div className="inline-flex items-center justify-center w-12 h-12 bg-blue-500 rounded-full text-xl font-semibold text-white" data-config-id="auto-txt-10-3">3</div>
                     </div>
-                    <h3 className="md:w-64 mb-4 text-lg md:text-xl font-bold" data-config-id="auto-txt-11-3">Potential Savings</h3>
+                    <h3 className="text-center mb-4 text-lg md:text-xl font-bold" data-config-id="auto-txt-11-3">Potential Savings</h3>
                     <p className="text-coolGray-500 font-medium" data-config-id="auto-txt-12-3">Explore current rates in your area, and see if you can save today!</p>
                   </div>
                 </div>

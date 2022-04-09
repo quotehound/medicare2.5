@@ -177,7 +177,7 @@ class Name extends Component {
                       name="first_name"
                       placeholder="First Name"
                       id="firstName"
-                      autoComplete="off"
+                      autoComplete="given-name"
                       value={this.state.value}
                       onChange={this.setFirstName}
                       required
@@ -190,7 +190,7 @@ class Name extends Component {
                       name="last_name"
                       placeholder="Last Name"
                       id="lastName"
-                      autoComplete="off"
+                      autoComplete="family-name"
                       value={this.state.value}
                       onChange={this.setLastName}
                       required

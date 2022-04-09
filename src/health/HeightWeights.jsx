@@ -8,6 +8,8 @@ import Fade from "react-reveal/Fade";
 import { LinkWithQuery } from "../BackButton";
 import $ from "jquery";
 import { toast, ToastContainer } from "react-toastify";
+import BottomPhoneHealth from './BottomPhoneHealth';
+
 
 
 class HeightWeight extends Component {
@@ -195,6 +197,7 @@ class HeightWeight extends Component {
               </form>
             </div>
           </div >
+          <BottomPhoneHealth />
         </Fade >
 
         <HealthFooter />

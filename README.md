@@ -255,8 +255,24 @@ npm i
   - added skip to address
 
 - ## v2.5.1.0-4
+
   - fixed skip issue on DOB
   - fixed issue with dead click
+
+- ## v2.5.1.0-5
+
+  - fixed CTA on jumbo intro
+  - Adujusted Call only pages
+  - added call now cta in welcome back
+  - fixed auto complete not working for first and last name
+  - fixed navbar number TTY
+  - Added entrance url to post
+  - Added Phone to bottom of form in Medicare Route
+  - Added DOB bug fix for skip
+
+- ## v2.5.1.1
+  - Finalized all fixes
+  - optimized for production level
 
 ## Known Bugs <a name = "bugs"></a>
 

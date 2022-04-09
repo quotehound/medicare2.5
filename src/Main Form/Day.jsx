@@ -9,8 +9,8 @@ import $ from 'jquery'
 import { withRouter } from "react-router";
 import Fade from "react-reveal/Fade";
 import { LinkWithQuery } from '../BackButton'
-import { fireEvent } from "@testing-library/react";
-
+import BottomPhoneHealth from "../health/BottomPhoneHealth";
+import BottomPhoneMedicare from "../medicare/BottomPhone";
 
 class Day extends Component {
   constructor(props) {
@@ -32,7 +32,11 @@ class Day extends Component {
 
       let hideNav = document.getElementById('medicare-nav');
       let hideBanner = document.getElementById('medicare-banner');
+      let ctaMedicare = document.getElementById('medicare-cta')
+      let skip = document.getElementById('skip');
 
+      $(skip).hide();
+      $(ctaMedicare).hide();
       $(hideNav).hide()
       $(hideBanner).hide();
 
@@ -41,7 +45,10 @@ class Day extends Component {
 
       let hideNav = document.getElementById('health-nav');
       let hideBanner = document.getElementById('health-banner');
+      let ctaHealth = document.getElementById('health-cta');
 
+
+      $(ctaHealth).hide();
       $(hideNav).hide();
       $(hideBanner).hide();
     }
@@ -209,11 +216,13 @@ class Day extends Component {
 
                   </div>
                 </div>
-                {/* <button className="w-full space-y-6 relative flex justify-center leading-5 underline text-gray-400" id="skip" onClick={this.skipStep}>Skip</button> */}
+                <button className="w-full space-y-6 relative flex justify-center leading-5 underline text-gray-400" id="skip" onClick={this.skipStep}>Skip</button>
                 <LinkWithQuery to='/month'>Back</LinkWithQuery>
               </form>
             </div>
           </div>
+          <BottomPhoneHealth />
+          <BottomPhoneMedicare />
         </Fade>
 
         <FooterMedicare />

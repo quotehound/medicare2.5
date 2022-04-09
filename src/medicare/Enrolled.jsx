@@ -5,7 +5,8 @@ import FooterMedicare from "./FooterMedicare";
 import "../forms.css";
 import { withRouter } from "react-router";
 import Fade from 'react-reveal/Fade';
-import { LinkWithQuery } from '../BackButton'
+import { LinkWithQuery } from '../BackButton';
+import BottomPhoneMedicare from './BottomPhone'
 
 
 
@@ -105,6 +106,7 @@ class Enrolled extends Component {
               </form>
             </div>
           </div>
+          <BottomPhoneMedicare />
         </Fade>
         <FooterMedicare />
       </div>

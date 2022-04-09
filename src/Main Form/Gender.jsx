@@ -4,6 +4,8 @@ import MedicareBanner from "../medicare/MedicareBanner";
 import FooterMedicare from "../medicare/FooterMedicare";
 import NavBarHealthCare from '../health/NavBarHealthCare';
 import HealthBanner from '../health/HealthBanner';
+import BottomPhoneHealth from "../health/BottomPhoneHealth";
+import BottomPhoneMedicare from "../medicare/BottomPhone";
 
 import "../forms.css";
 import { withRouter } from "react-router";
@@ -34,9 +36,10 @@ class Gender extends Component {
       let hideNav = document.getElementById('medicare-nav');
       let hideBanner = document.getElementById('medicare-banner');
       let skip = document.getElementById('skip');
+      let ctaMedicare = document.getElementById('medicare-cta')
 
       $(skip).hide();
-
+      $(ctaMedicare).hide();
       $(hideNav).hide()
       $(hideBanner).hide();
 
@@ -45,7 +48,10 @@ class Gender extends Component {
 
       let hideNav = document.getElementById('health-nav');
       let hideBanner = document.getElementById('health-banner');
+      let ctaHealth = document.getElementById('health-cta');
 
+
+      $(ctaHealth).hide();
       $(hideNav).hide();
       $(hideBanner).hide();
     }
@@ -196,6 +202,8 @@ class Gender extends Component {
               </form>
             </div>
           </div>
+          <BottomPhoneHealth />
+          <BottomPhoneMedicare />
         </Fade>
 
         <FooterMedicare />

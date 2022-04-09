@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import NavBarMedicare from "./medicare/NavBarMedicare";
 import MedicareBanner from "./medicare/MedicareBanner";
 import FooterMedicare from "./medicare/FooterMedicare";
+import BottomPhoneMedicare from "./medicare/BottomPhone";
 import "./forms.css";
 import { withRouter } from "react-router";
 import Fade from 'react-reveal/Fade';
@@ -120,6 +121,8 @@ class Age extends Component {
               </form>
             </div>
           </div>
+          <BottomPhoneMedicare />
+
         </Fade>
         <FooterMedicare />
       </div>

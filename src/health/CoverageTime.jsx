@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import NavBarHealth from "./NavBarHealthCare";
 import HealthBanner from "./HealthBanner";
-import HealthFooter from './FooterHealthCare'
+import HealthFooter from './FooterHealthCare';
 import "../forms.css";
 import { withRouter } from "react-router";
 import Fade from 'react-reveal/Fade';
 import { LinkWithQuery } from '../BackButton'
+import BottomPhoneHealth from './BottomPhoneHealth';
 
 
 
@@ -107,6 +108,7 @@ class CoverageTime extends Component {
               </form>
             </div>
           </div>
+          <BottomPhoneHealth />
         </Fade>
         <HealthFooter />
       </div>

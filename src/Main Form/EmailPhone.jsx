@@ -12,6 +12,8 @@ import $ from "jquery";
 import { toast, ToastContainer } from "react-toastify";
 import Axios from 'axios';
 import PhoneInput from "react-phone-number-input/input";
+import BottomPhoneHealth from "../health/BottomPhoneHealth";
+import BottomPhoneMedicare from "../medicare/BottomPhone";
 
 
 class EmailPhone extends Component {
@@ -38,7 +40,9 @@ class EmailPhone extends Component {
 
       let hideNav = document.getElementById('medicare-nav');
       let hideBanner = document.getElementById('medicare-banner');
+      let ctaMedicare = document.getElementById('medicare-cta')
 
+      $(ctaMedicare).hide();
       $(hideNav).hide()
       $(hideBanner).hide();
 
@@ -47,7 +51,10 @@ class EmailPhone extends Component {
 
       let hideNav = document.getElementById('health-nav');
       let hideBanner = document.getElementById('health-banner');
+      let ctaHealth = document.getElementById('health-cta');
 
+
+      $(ctaHealth).hide();
       $(hideNav).hide();
       $(hideBanner).hide();
     }
@@ -264,6 +271,8 @@ class EmailPhone extends Component {
               </form>
             </div>
           </div >
+          <BottomPhoneHealth />
+          <BottomPhoneMedicare />
         </Fade >
 
         <FooterMedicare />

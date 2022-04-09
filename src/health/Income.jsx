@@ -6,6 +6,8 @@ import "../forms.css";
 import { withRouter } from "react-router";
 import Fade from 'react-reveal/Fade';
 import { LinkWithQuery } from '../BackButton'
+import BottomPhoneHealth from './BottomPhoneHealth';
+
 
 
 
@@ -116,6 +118,7 @@ class Income extends Component {
               </form>
             </div>
           </div>
+          <BottomPhoneHealth />
         </Fade>
         <HealthFooter />
       </div>

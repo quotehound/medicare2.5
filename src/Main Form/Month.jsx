@@ -9,6 +9,8 @@ import { withRouter } from "react-router";
 import Fade from "react-reveal/Fade";
 import $ from 'jquery'
 import { LinkWithQuery } from '../BackButton'
+import BottomPhoneHealth from "../health/BottomPhoneHealth";
+import BottomPhoneMedicare from "../medicare/BottomPhone";
 
 class Month extends Component {
   constructor(props) {
@@ -32,8 +34,10 @@ class Month extends Component {
       let hideNav = document.getElementById('medicare-nav');
       let hideBanner = document.getElementById('medicare-banner');
       let skip = document.getElementById('skip');
+      let ctaMedicare = document.getElementById('medicare-cta')
 
       $(skip).hide();
+      $(ctaMedicare).hide();
       $(hideNav).hide()
       $(hideBanner).hide();
 
@@ -42,7 +46,10 @@ class Month extends Component {
 
       let hideNav = document.getElementById('health-nav');
       let hideBanner = document.getElementById('health-banner');
+      let ctaHealth = document.getElementById('health-cta');
 
+
+      $(ctaHealth).hide();
       $(hideNav).hide();
       $(hideBanner).hide();
     }
@@ -102,6 +109,7 @@ class Month extends Component {
 
     event.preventDefault();
     let val = '02/05/1955';
+    let m = '02'
 
     this.props.setDOB(val);
 
@@ -138,7 +146,7 @@ class Month extends Component {
       "&enrolled=" +
       enrolled +
       "&gender=" + gender
-      + "&month=" + val +
+      + "&month=" + m +
       "&dobskip=" + dobskip
     );
 
@@ -222,7 +230,8 @@ class Month extends Component {
 
             </div>
           </div>
-
+          <BottomPhoneHealth />
+          <BottomPhoneMedicare />
         </Fade>
 
         <FooterMedicare />
