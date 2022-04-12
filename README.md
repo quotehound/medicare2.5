@@ -271,8 +271,15 @@ npm i
   - Added DOB bug fix for skip
 
 - ## v2.5.1.1
+
   - Finalized all fixes
   - optimized for production level
+
+- ## v2.5.1.2
+  - added firebase
+  - added firebase firestore
+  - initialzied firebase db talk
+  - add firebase first step
 
 ## Known Bugs <a name = "bugs"></a>
 
