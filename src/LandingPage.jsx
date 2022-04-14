@@ -175,7 +175,7 @@ class LandingPage extends Component {
                                 minLength={5}
                                 maxLength={5}
                               />
-                              <p className='text-sm pt-2 text-gray-400' id='city'>Savings available in <span className='text-blue-300 font-bold'>{city}, {state}</span></p>
+                              <p className='text-sm pt-2 text-gray-400' id='city'>Quotes available in <span className='text-blue-300 font-bold'>{city}, {state}</span></p>
                             </div>
                             {/* <LandingPageCheckBox /> */}
                             <div>
