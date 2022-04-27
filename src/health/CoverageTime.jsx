@@ -57,7 +57,7 @@ class CoverageTime extends Component {
 
   render() {
     let buttonsTitles = [
-      { title: "Immediatley", id: "immediately", value: "immediately" },
+      { title: "Immediately", id: "immediately", value: "immediately" },
       { title: "2 Months", id: "2 Months", value: "2 Months" },
       { title: "Not Sure", id: "Not Sure", value: "Not Sure" },
     ];

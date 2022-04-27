@@ -10,10 +10,19 @@ import Fade from "react-reveal/Fade";
 import { LinkWithQuery } from "../BackButton";
 import $ from "jquery";
 import { toast, ToastContainer } from "react-toastify";
-import Axios from 'axios';
+import axios from 'axios';
 import PhoneInput from "react-phone-number-input/input";
 import BottomPhoneHealth from "../health/BottomPhoneHealth";
 import BottomPhoneMedicare from "../medicare/BottomPhone";
+import CryptoJS from 'crypto-js';
+
+var encryptedPhone = "U2FsdGVkX19YtndClI2zdSGpKvCVE2rUCMhYWFgVu345xWr6VmFLrw2TUjae25+XVOw8Pzm4N9HlsOU+vgGBUDeC+HWt0wsG/KWJettoINfE7YmKGl7Yj0P2gJiYVfQB";
+var decryptedPhone = CryptoJS.AES.decrypt(encryptedPhone, "APIKey");
+var decryptedPhoneKey = decryptedPhone.toString(CryptoJS.enc.Utf8);
+
+var encryptedEmail = "U2FsdGVkX1+txazCwBQnS0p9QCJxf697lPLNg8cGEqQLK9qotOSBXsZ2BZc+iFISlsIYTON743ssGXRKF0e2cSmldwHS+cjlicPWJtcgCBwbwuwaaK8Io63X5WU+BMlN";
+var decryptedEmail = CryptoJS.AES.decrypt(encryptedEmail, "APIKey");
+var decryptedEmail = decryptedEmail.toString(CryptoJS.enc.Utf8);
 
 
 class EmailPhone extends Component {
@@ -22,13 +31,32 @@ class EmailPhone extends Component {
     this.state = {
       email: " ",
       phone: " ",
+      submitDisabled: true,
       progress: 10,
       error: "",
       loading: false,
       response: "",
     };
+    this.timer = null;
     this.handleClick = this.handleClick.bind(this);
   }
+
+  componentDidUpdate (prevProps, prevState) {
+    if(prevState.phone !== this.state.phone) {
+      this.handleCheck();
+    }
+
+    if(prevState.email !== this.state.email) {
+      this.handleCheck();
+    }
+  }
+  
+  onChange = e => {
+    this.setState({
+      phone: e.target.value,
+      email: e.target.value
+    });
+  };
 
   componentDidMount() {
 
@@ -59,15 +87,48 @@ class EmailPhone extends Component {
       $(hideBanner).hide();
     }
 
-
   }
 
   postEmail = (values) => {
+
     let email = document.getElementById('email').value;
 
     this.state.email = email;
 
-    this.props.setEmail(email)
+    // Clears running timer and starts a new one each time the user types
+    clearTimeout(this.timer);
+    this.timer = setTimeout(() => {
+      const data = {
+        email: email
+      };
+      
+      const options = {
+        headers: {
+          'Authorization': 'Bearer ' + decryptedEmail,
+          'Content-Type': 'application/json'
+        }
+      };
+  
+      axios.post('https://api.sendgrid.com/v3/validations/email', data, options)
+      .then((res) => {
+        if(res.data.result.verdict !== 'Valid')
+        {
+          toast.error('😬 Please Enter A Valid Email!');
+  
+          this.setState({
+            submitDisabled: true
+          })
+        }
+        else
+        {
+          this.setState({
+            submitDisabled: false
+          })
+        }
+      });
+    }, 1000);
+
+    this.props.setEmail(email);
   }
 
   postPhone = (values) => {
@@ -76,6 +137,46 @@ class EmailPhone extends Component {
 
     var realPhone = phone.replace(/\D/g, "");
 
+    // Clears running timer and starts a new one each time the user types
+    clearTimeout(this.timer);
+    this.timer = setTimeout(() => {
+      const phoneGetRequest = async () => {
+        try {
+          const res = await axios.get('https://lookups.twilio.com/v1/PhoneNumbers/+1' + realPhone + '?Type=carrier', {
+            headers: {
+              'Authorization': 'Basic ' + btoa(decryptedPhoneKey)
+            }
+          }).then(res => {
+            const type = res.data.carrier.type;
+            if(!(type === 'mobile' || type === 'voip'))
+            {
+              toast.error("Please Enter A Valid Phone Number!");
+  
+              this.setState({
+                submitDisabled: true
+              })
+            }
+            else
+            { 
+              this.setState({
+                submitDisabled: false
+              })
+            }
+          });
+        }
+        catch (err)
+        {
+          toast.error("😬 Please Enter A Valid Phone Number!");
+  
+          this.setState({
+            submitDisabled: true
+          })
+        }
+      };
+  
+      phoneGetRequest();
+    }, 1000);
+
     this.props.setPhone(realPhone);
 
   }
@@ -83,20 +184,17 @@ class EmailPhone extends Component {
 
   handleClick = (value) => {
 
-
-
     let email = document.getElementById('email').value;
     let phone = document.getElementById('phone_home').value;
 
     if (phone.length < 14) {
-      toast.error('Please Enter A Valid Phone Number')
-
+      toast.error('Please Enter A Valid Phone Number');
       return;
     }
 
     if (email.length < 5) {
-      toast.error('Please Enter A Valid Email!')
-      return
+      toast.error('Please Enter A Valid Email!');
+      return;
     }
 
     let realPhone = phone.replace(/\D/g, "");
@@ -123,7 +221,6 @@ class EmailPhone extends Component {
     this.setState({
       loading: true
     }, this.postMedicare(this.props.postData))
-
 
 
     this.props.history.push(
@@ -163,7 +260,7 @@ class EmailPhone extends Component {
   postMedicare = (postData) => {
     console.log(postData);
 
-    Axios.post('https://quotehound.leadspediatrack.com/post.do', null, {
+    axios.post('https://quotehound.leadspediatrack.com/post.do', null, {
       params: postData,
     })
       .then((res) => {
@@ -176,7 +273,7 @@ class EmailPhone extends Component {
       })
       .catch((err) => {
         if (err) {
-          toast.error('there was an error submiting your form!')
+          toast.error('there was an error submiting your form!');
         }
       })
   }
@@ -185,13 +282,9 @@ class EmailPhone extends Component {
 
   render() {
 
-
-
     const urlSearch = window.location.search;
     const urlParams = new URLSearchParams(urlSearch);
     const fName = urlParams.get('first_name');
-
-
 
     const fType = urlParams.get("formType");
 
@@ -240,6 +333,7 @@ class EmailPhone extends Component {
                       id="phone_home"
                       placeholder="Phone Number"
                       name="phone_home"
+                      value={this.state.phone}
                       onChange={this.postPhone}
                       minLength={10}
                       maxLength={14}
@@ -260,6 +354,7 @@ class EmailPhone extends Component {
                     type="submit"
                     className="px-6 py-4 ripple-bg-blue-200 text-lg bg-blue-400 hover:shadow-lg hover:shadow-blue-300/50 text-white rounded transition duration-200 zipSubmit items-center align-middle flex flex-row text-center justify-center "
                     id="submit"
+                    disabled={this.state.submitDisabled}
                     onClick={this.handleClick}
                   >
                     Get Your No Obligation Quote!
