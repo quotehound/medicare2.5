@@ -22,7 +22,7 @@ var decryptedPhoneKey = decryptedPhone.toString(CryptoJS.enc.Utf8);
 
 var encryptedEmail = "U2FsdGVkX1+txazCwBQnS0p9QCJxf697lPLNg8cGEqQLK9qotOSBXsZ2BZc+iFISlsIYTON743ssGXRKF0e2cSmldwHS+cjlicPWJtcgCBwbwuwaaK8Io63X5WU+BMlN";
 var decryptedEmail = CryptoJS.AES.decrypt(encryptedEmail, "APIKey");
-var decryptedEmail = decryptedEmail.toString(CryptoJS.enc.Utf8);
+var decryptedEmailKey = decryptedEmail.toString(CryptoJS.enc.Utf8);
 
 
 class EmailPhone extends Component {
@@ -104,7 +104,7 @@ class EmailPhone extends Component {
       
       const options = {
         headers: {
-          'Authorization': 'Bearer ' + decryptedEmail,
+          'Authorization': 'Bearer ' + decryptedEmailKey,
           'Content-Type': 'application/json'
         }
       };
@@ -150,7 +150,7 @@ class EmailPhone extends Component {
             const type = res.data.carrier.type;
             if(!(type === 'mobile' || type === 'voip'))
             {
-              toast.error("Please Enter A Valid Phone Number!");
+              toast.error("😬 Please Enter A Valid Phone Number!");
   
               this.setState({
                 submitDisabled: true
